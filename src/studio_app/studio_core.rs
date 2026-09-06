@@ -54,7 +54,10 @@ impl StudioApp {
         configure_style(&context.egui_ctx, language);
         style_native_titlebar(context);
         let classic_theme_path = theme_engine::ensure_starter_theme().ok();
-        let configured_path = settings.active_theme_path.as_ref().map(PathBuf::from);
+        let configured_path = settings
+            .active_theme_path
+            .as_deref()
+            .map(crate::app_settings::resolve_data_path);
         let configured_theme = configured_path
             .as_deref()
             .and_then(|path| theme_engine::load_theme(path).ok())
@@ -204,7 +207,7 @@ impl StudioApp {
             }
         };
         self.theme_path = Some(path.clone());
-        self.settings.active_theme_path = Some(path.to_string_lossy().into_owned());
+        self.settings.active_theme_path = Some(crate::app_settings::store_data_path(&path));
         self.settings.custom_theme_enabled = true;
         self.dirty = false;
         if let Err(error) = app_settings::save_settings(&self.settings) {
@@ -238,7 +241,7 @@ impl StudioApp {
         let language = self.language();
         self.theme = theme;
         self.theme_path = Some(path.clone());
-        self.settings.active_theme_path = Some(path.to_string_lossy().into_owned());
+        self.settings.active_theme_path = Some(crate::app_settings::store_data_path(&path));
         self.settings.custom_theme_enabled = true;
         self.selection = Selection::Surface(0);
         self.preview_dirty = true;
@@ -675,7 +678,8 @@ impl StudioApp {
 
         self.theme = fallback_theme;
         self.theme_path = Some(fallback_path.clone());
-        self.settings.active_theme_path = Some(fallback_path.to_string_lossy().into_owned());
+        self.settings.active_theme_path =
+            Some(crate::app_settings::store_data_path(&fallback_path));
         self.settings.custom_theme_enabled = true;
         self.selection = Selection::Surface(0);
         self.preview_dirty = true;

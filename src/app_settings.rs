@@ -191,10 +191,42 @@ pub struct UsageCache {
 }
 
 pub fn app_data_directory() -> PathBuf {
+    // A `data` folder beside the executable makes the copy portable: it keeps
+    // its own settings and themes instead of picking up whatever this machine
+    // happens to have in %APPDATA%. Without one, nothing changes.
+    if let Some(portable) = portable_data_directory() {
+        return portable;
+    }
     let root = std::env::var_os("APPDATA")
         .map(PathBuf::from)
         .unwrap_or_else(|| PathBuf::from("."));
     root.join("ClaudeCodeUsageMonitor")
+}
+
+fn portable_data_directory() -> Option<PathBuf> {
+    let directory = std::env::current_exe().ok()?.parent()?.join("data");
+    directory.is_dir().then_some(directory)
+}
+
+/// Turn a stored theme path back into a real one. Paths are kept relative to
+/// the data directory where possible, because an absolute path baked on one
+/// machine points at another user's folder on the next.
+pub fn resolve_data_path(path: &str) -> PathBuf {
+    let path = PathBuf::from(path);
+    if path.is_absolute() {
+        path
+    } else {
+        app_data_directory().join(path)
+    }
+}
+
+/// The counterpart to [`resolve_data_path`]: store paths inside the data
+/// directory relative to it, and anything outside it as-is.
+pub fn store_data_path(path: &Path) -> String {
+    path.strip_prefix(app_data_directory())
+        .unwrap_or(path)
+        .to_string_lossy()
+        .into_owned()
 }
 
 pub fn settings_path() -> PathBuf {

@@ -536,8 +536,8 @@ fn save_state_settings() {
         persisted.custom_theme_enabled = s.custom_theme_enabled;
         persisted.active_theme_path = s
             .active_theme_path
-            .as_ref()
-            .map(|path| path.to_string_lossy().to_string());
+            .as_deref()
+            .map(crate::app_settings::store_data_path);
         // The dashboard process owns its dimensions, so leave the freshly
         // loaded values unchanged when monitor actions persist settings.
         if let Err(error) = save_settings(&persisted) {
@@ -1637,7 +1637,10 @@ pub fn run() {
 
         let mut settings = load_settings();
         let classic_theme_path = theme_engine::ensure_starter_theme().ok();
-        let mut configured_theme_path = settings.active_theme_path.as_deref().map(PathBuf::from);
+        let mut configured_theme_path = settings
+            .active_theme_path
+            .as_deref()
+            .map(crate::app_settings::resolve_data_path);
         let mut configured_theme = configured_theme_path
             .as_deref()
             .and_then(|path| theme_engine::load_theme(path).ok())
