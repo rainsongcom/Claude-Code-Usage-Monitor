@@ -29,6 +29,21 @@ pub struct CreditsSection {
     pub total: f64,
 }
 
+/// An allowance that covers one model family rather than everything the plan
+/// can run. Anthropic reports Fable this way: it draws from the same weekly
+/// allowance as every other model but stops at its own lower ceiling, so the
+/// two readings have to be shown side by side to mean anything.
+#[derive(Clone, Debug, Default, PartialEq, Serialize, Deserialize)]
+pub struct ScopedUsageSection {
+    /// Model family the ceiling applies to, as the provider names it, e.g.
+    /// "Fable". Themes show this instead of a hard-coded label because the
+    /// set of scoped windows differs by plan and changes over time.
+    pub model: String,
+    /// Share of this model family's own ceiling already consumed, 0 to 100.
+    pub percentage: f64,
+    pub resets_at: Option<SystemTime>,
+}
+
 #[derive(Clone, Debug, Default, PartialEq, Serialize, Deserialize)]
 pub struct UsageData {
     pub session: UsageSection,
@@ -39,6 +54,11 @@ pub struct UsageData {
     /// Kept separate from `weekly` so themes can choose how to display it.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub monthly: Option<UsageSection>,
+    /// A window that caps one model family inside the ordinary allowance.
+    /// `None` when the plan has no such ceiling, or the provider does not
+    /// report one.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub scoped: Option<ScopedUsageSection>,
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub credits: Option<CreditsSection>,
     /// True when this reading was carried over from an earlier poll because

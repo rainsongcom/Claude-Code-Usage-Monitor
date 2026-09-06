@@ -11,7 +11,7 @@ use super::{
     PollError,
 };
 use crate::diagnose;
-use crate::models::{CreditsSection, UsageData};
+use crate::models::{CreditsSection, ScopedUsageSection, UsageData};
 
 const USAGE_URL: &str = "https://api.anthropic.com/api/oauth/usage";
 const MESSAGES_URL: &str = "https://api.anthropic.com/v1/messages";
@@ -23,6 +23,52 @@ struct UsageResponse {
     five_hour: Option<UsageBucket>,
     seven_day: Option<UsageBucket>,
     spend: Option<SpendResponse>,
+    /// Every allowance the plan currently enforces, including ones with no
+    /// top-level field of their own. Model-scoped ceilings such as Fable's
+    /// weekly sub-cap arrive only here.
+    #[serde(default)]
+    limits: Vec<LimitEntry>,
+}
+
+/// One entry of the `limits` array. Plan-wide windows leave `scope` null and
+/// are already covered by `five_hour` and `seven_day`; an entry with a scope
+/// is the only place a per-model ceiling is reported.
+#[derive(Deserialize)]
+struct LimitEntry {
+    percent: Option<f64>,
+    resets_at: Option<String>,
+    scope: Option<LimitScope>,
+}
+
+#[derive(Deserialize)]
+struct LimitScope {
+    model: Option<LimitScopeModel>,
+}
+
+#[derive(Deserialize)]
+struct LimitScopeModel {
+    display_name: Option<String>,
+}
+
+impl LimitEntry {
+    /// The per-model reading this entry carries, if it has one. Reading the
+    /// scope rather than matching on `kind` keeps this working when a plan
+    /// gains a scoped window in another group, such as a five-hour one.
+    fn scoped_section(&self) -> Option<ScopedUsageSection> {
+        let model = self
+            .scope
+            .as_ref()?
+            .model
+            .as_ref()?
+            .display_name
+            .as_deref()
+            .filter(|name| !name.trim().is_empty())?;
+        Some(ScopedUsageSection {
+            model: model.to_string(),
+            percentage: self.percent.unwrap_or(0.0),
+            resets_at: parse_iso8601(self.resets_at.as_deref()),
+        })
+    }
 }
 
 /// Paid credits that carry the account past its plan limits. Amounts are
@@ -158,6 +204,11 @@ pub(super) fn try_usage_endpoint(token: &str) -> Result<Option<UsageData>, PollE
         data.weekly.percentage = bucket.utilization;
         data.weekly.resets_at = parse_iso8601(bucket.resets_at.as_deref());
     }
+
+    data.scoped = response
+        .limits
+        .iter()
+        .find_map(LimitEntry::scoped_section);
 
     data.credits = response
         .spend

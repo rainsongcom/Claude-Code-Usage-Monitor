@@ -1420,6 +1420,33 @@ impl DataContext {
             &format!("{name}.monthly.available"),
             monthly.is_some() as u8 as f64,
         );
+        // A ceiling that covers one model family inside the same allowance,
+        // such as Claude's weekly Fable sub-cap. The label is the provider's
+        // own model name rather than a fixed string, because which families
+        // are capped differs by plan.
+        let scoped = usage.and_then(|usage| usage.scoped.as_ref());
+        let scoped_percentage = scoped.map(|scoped| scoped.percentage).unwrap_or(0.0);
+        self.insert_string(
+            &format!("{name}.scoped.label"),
+            scoped.map(|scoped| scoped.model.clone()).unwrap_or_default(),
+        );
+        // The label column is sized for the two-character window names next
+        // to it ("5h", "7d"), so a model name gets a clipped form to match.
+        self.insert_string(
+            &format!("{name}.scoped.label_short"),
+            scoped
+                .map(|scoped| scoped.model.chars().take(2).collect::<String>())
+                .unwrap_or_default(),
+        );
+        self.insert(&format!("{name}.scoped.percentage"), scoped_percentage);
+        self.insert(
+            &format!("{name}.scoped.remaining"),
+            100.0 - scoped_percentage,
+        );
+        self.insert(
+            &format!("{name}.scoped.available"),
+            scoped.is_some() as u8 as f64,
+        );
         self.insert(&format!("{name}.available"), usage.is_some() as u8 as f64);
         // Carried over from an earlier poll: real figures, not current ones.
         self.insert(
@@ -1481,11 +1508,13 @@ impl DataContext {
         };
         let (monthly_unix, monthly_seconds) =
             reset_value(monthly.and_then(|value| value.resets_at));
+        let (scoped_unix, scoped_seconds) = reset_value(scoped.and_then(|value| value.resets_at));
         for (window, unix, seconds) in [
             ("session", session_unix, session_seconds),
             ("five_hour", five_hour_unix, five_hour_seconds),
             ("weekly", weekly_unix, weekly_seconds),
             ("monthly", monthly_unix, monthly_seconds),
+            ("scoped", scoped_unix, scoped_seconds),
         ] {
             self.insert(&format!("{name}.{window}.reset.unix"), unix);
             self.insert(&format!("{name}.{window}.reset.seconds"), seconds);
