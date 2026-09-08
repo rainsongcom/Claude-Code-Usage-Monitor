@@ -295,6 +295,40 @@ fn templates_apply_numeric_character_formats() {
 }
 
 #[test]
+fn countdown_keeps_two_fixed_width_units() {
+    let mut context = DataContext::default();
+    for (seconds, expected) in [
+        (5.0 * 86_400.0 + 13.0 * 3_600.0, "05d 13h"),
+        // Days present: minutes are dropped, not rounded into the hour.
+        (86_400.0 + 59.0 * 60.0, "01d 00h"),
+        (2.0 * 3_600.0 + 38.0 * 60.0, "02h 38m"),
+        // Under an hour keeps the hour field so the width never changes.
+        (5.0 * 60.0, "00h 05m"),
+        (30.0, "00h 00m"),
+        (0.0, "00h 00m"),
+    ] {
+        context.insert("reset", seconds);
+        assert_eq!(
+            format_template("{reset:countdown}", &context),
+            expected,
+            "{seconds} seconds"
+        );
+    }
+    let widths: std::collections::HashSet<usize> = [
+        5.0 * 86_400.0,
+        2.0 * 3_600.0,
+        60.0,
+    ]
+    .into_iter()
+    .map(|seconds| {
+        context.insert("reset", seconds);
+        format_template("{reset:countdown}", &context).chars().count()
+    })
+    .collect();
+    assert_eq!(widths.len(), 1, "every countdown should render the same width");
+}
+
+#[test]
 fn text_templates_allow_if_to_return_quoted_strings() {
     let mut context = DataContext::default();
     context.insert("weekday", 1.0);

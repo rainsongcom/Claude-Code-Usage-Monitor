@@ -528,7 +528,7 @@ pub(super) fn format_usage_line(base: &str, context: &DataContext) -> Option<Str
         .unwrap_or(0.0);
     Some(format!(
         "{percentage}% · {}",
-        format_value(seconds, "duration_short", context)
+        format_value(seconds, "countdown", context)
     ))
 }
 
@@ -548,6 +548,31 @@ pub(super) fn localized<'a>(context: &'a DataContext, name: &str, fallback: &'a 
 pub(super) fn format_value(value: f64, format: &str, context: &DataContext) -> String {
     if let Some(value) = format_timestamp(value, format, context) {
         return value;
+    }
+    if format.eq_ignore_ascii_case("countdown") {
+        // Always two units, each two digits, so the text keeps its width as
+        // the value falls. Rows stacked on top of each other stay aligned
+        // that way, which the single-unit `duration_short` cannot do: "1h"
+        // and "38m" are not the same width, so everything after them moves.
+        let seconds = value.max(0.0).round() as u64;
+        let days = seconds / 86_400;
+        let hours = seconds % 86_400 / 3_600;
+        let minutes = seconds % 3_600 / 60;
+        return if days > 0 {
+            format!(
+                "{days:02}{} {hours:02}{}",
+                localized(context, "i18n.day_suffix", "d"),
+                localized(context, "i18n.hour_suffix", "h")
+            )
+        } else {
+            // Under an hour still shows the hour field, as "00h 05m", rather
+            // than dropping to minutes alone and losing the alignment.
+            format!(
+                "{hours:02}{} {minutes:02}{}",
+                localized(context, "i18n.hour_suffix", "h"),
+                localized(context, "i18n.minute_suffix", "m")
+            )
+        };
     }
     if format.eq_ignore_ascii_case("duration_short") {
         let seconds = value.max(0.0).round() as u64;
