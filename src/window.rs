@@ -1667,7 +1667,8 @@ pub fn run() {
                     Ok(path) => {
                         configured_theme_path = Some(path.clone());
                         configured_theme = Some(migrated);
-                        settings.active_theme_path = Some(path.to_string_lossy().into_owned());
+                        settings.active_theme_path =
+                            Some(crate::app_settings::store_data_path(&path));
                         settings.custom_theme_enabled = true;
                         settings.consume_legacy_placement();
                         settings.consume_legacy_widget_visibility();
@@ -1710,7 +1711,7 @@ pub fn run() {
             .as_ref()
             .is_some_and(theme_tray_uses_current_time);
         if let Some(path) = &active_theme_path {
-            let path = path.to_string_lossy().into_owned();
+            let path = crate::app_settings::store_data_path(path);
             if settings.active_theme_path.as_deref() != Some(path.as_str())
                 || !settings.custom_theme_enabled
             {
@@ -2331,7 +2332,10 @@ fn check_language_change() {
 fn reload_external_settings(hwnd: HWND) {
     let settings = load_settings();
     let language_override = settings.language.as_deref().and_then(LanguageId::from_code);
-    let theme_path = settings.active_theme_path.as_ref().map(PathBuf::from);
+    let theme_path = settings
+        .active_theme_path
+        .as_deref()
+        .map(crate::app_settings::resolve_data_path);
     let providers_changed;
     {
         let mut state = lock_state();
