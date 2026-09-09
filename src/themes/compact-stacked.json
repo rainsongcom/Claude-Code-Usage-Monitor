@@ -121,30 +121,14 @@
           "name": "dark Cursor Auto segments pace marker",
           "render": "(system.dark) * min(1, cursor.session.reset.period)",
           "parent": "cursor-session-segments-dark",
+          "x": "cursor.session.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
+          "width": "2",
           "height": "parent.height",
-          "x": "cursor.session.reset.elapsed / 100 * (parent.width - 3)",
-          "width": "3",
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#00000099"
-            }
-          }
-        },
-        {
-          "id": "cursor-session-segments-dark-pace-core",
-          "name": "dark Cursor Auto segments pace marker core",
-          "render": "(system.dark) * min(1, cursor.session.reset.period)",
-          "parent": "cursor-session-segments-dark",
-          "y": "0",
-          "height": "parent.height",
-          "x": "cursor.session.reset.elapsed / 100 * (parent.width - 3) + 1",
-          "width": "1",
-          "background": {
-            "type": "colour",
-            "colour": {
-              "color": "#FFFFFFF2"
+              "color": "#FF2D95FF"
             }
           }
         },
@@ -201,30 +185,14 @@
           "name": "light Cursor Auto segments pace marker",
           "render": "(1 - system.dark) * min(1, cursor.session.reset.period)",
           "parent": "cursor-session-segments-light",
+          "x": "cursor.session.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
+          "width": "2",
           "height": "parent.height",
-          "x": "cursor.session.reset.elapsed / 100 * (parent.width - 3)",
-          "width": "3",
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#00000099"
-            }
-          }
-        },
-        {
-          "id": "cursor-session-segments-light-pace-core",
-          "name": "light Cursor Auto segments pace marker core",
-          "render": "(1 - system.dark) * min(1, cursor.session.reset.period)",
-          "parent": "cursor-session-segments-light",
-          "y": "0",
-          "height": "parent.height",
-          "x": "cursor.session.reset.elapsed / 100 * (parent.width - 3) + 1",
-          "width": "1",
-          "background": {
-            "type": "colour",
-            "colour": {
-              "color": "#FFFFFFF2"
+              "color": "#FF2D95FF"
             }
           }
         },
@@ -281,30 +249,14 @@
           "name": "dark Cursor API segments pace marker",
           "render": "(system.dark) * min(1, cursor.weekly.reset.period)",
           "parent": "cursor-weekly-segments-dark",
+          "x": "cursor.weekly.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
+          "width": "2",
           "height": "parent.height",
-          "x": "cursor.weekly.reset.elapsed / 100 * (parent.width - 3)",
-          "width": "3",
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#00000099"
-            }
-          }
-        },
-        {
-          "id": "cursor-weekly-segments-dark-pace-core",
-          "name": "dark Cursor API segments pace marker core",
-          "render": "(system.dark) * min(1, cursor.weekly.reset.period)",
-          "parent": "cursor-weekly-segments-dark",
-          "y": "0",
-          "height": "parent.height",
-          "x": "cursor.weekly.reset.elapsed / 100 * (parent.width - 3) + 1",
-          "width": "1",
-          "background": {
-            "type": "colour",
-            "colour": {
-              "color": "#FFFFFFF2"
+              "color": "#FF2D95FF"
             }
           }
         },
@@ -361,30 +313,14 @@
           "name": "light Cursor API segments pace marker",
           "render": "(1 - system.dark) * min(1, cursor.weekly.reset.period)",
           "parent": "cursor-weekly-segments-light",
+          "x": "cursor.weekly.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
+          "width": "2",
           "height": "parent.height",
-          "x": "cursor.weekly.reset.elapsed / 100 * (parent.width - 3)",
-          "width": "3",
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#00000099"
-            }
-          }
-        },
-        {
-          "id": "cursor-weekly-segments-light-pace-core",
-          "name": "light Cursor API segments pace marker core",
-          "render": "(1 - system.dark) * min(1, cursor.weekly.reset.period)",
-          "parent": "cursor-weekly-segments-light",
-          "y": "0",
-          "height": "parent.height",
-          "x": "cursor.weekly.reset.elapsed / 100 * (parent.width - 3) + 1",
-          "width": "1",
-          "background": {
-            "type": "colour",
-            "colour": {
-              "color": "#FFFFFFF2"
+              "color": "#FF2D95FF"
             }
           }
         },
@@ -458,30 +394,14 @@
           "name": "dark Claude Code 5-hour segments pace marker",
           "render": "(system.dark) * min(1, claude.session.reset.period)",
           "parent": "claude-session-segments-dark",
+          "x": "claude.session.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
+          "width": "2",
           "height": "parent.height",
-          "x": "claude.session.reset.elapsed / 100 * (parent.width - 3)",
-          "width": "3",
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#00000099"
-            }
-          }
-        },
-        {
-          "id": "claude-session-segments-dark-pace-core",
-          "name": "dark Claude Code 5-hour segments pace marker core",
-          "render": "(system.dark) * min(1, claude.session.reset.period)",
-          "parent": "claude-session-segments-dark",
-          "y": "0",
-          "height": "parent.height",
-          "x": "claude.session.reset.elapsed / 100 * (parent.width - 3) + 1",
-          "width": "1",
-          "background": {
-            "type": "colour",
-            "colour": {
-              "color": "#FFFFFFF2"
+              "color": "#FF2D95FF"
             }
           }
         },
@@ -538,30 +458,14 @@
           "name": "light Claude Code 5-hour segments pace marker",
           "render": "(1 - system.dark) * min(1, claude.session.reset.period)",
           "parent": "claude-session-segments-light",
+          "x": "claude.session.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
+          "width": "2",
           "height": "parent.height",
-          "x": "claude.session.reset.elapsed / 100 * (parent.width - 3)",
-          "width": "3",
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#00000099"
-            }
-          }
-        },
-        {
-          "id": "claude-session-segments-light-pace-core",
-          "name": "light Claude Code 5-hour segments pace marker core",
-          "render": "(1 - system.dark) * min(1, claude.session.reset.period)",
-          "parent": "claude-session-segments-light",
-          "y": "0",
-          "height": "parent.height",
-          "x": "claude.session.reset.elapsed / 100 * (parent.width - 3) + 1",
-          "width": "1",
-          "background": {
-            "type": "colour",
-            "colour": {
-              "color": "#FFFFFFF2"
+              "color": "#FF2D95FF"
             }
           }
         },
@@ -618,30 +522,14 @@
           "name": "dark Claude Code 7-day segments pace marker",
           "render": "(system.dark) * min(1, claude.weekly.reset.period)",
           "parent": "claude-weekly-segments-dark",
+          "x": "claude.weekly.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
+          "width": "2",
           "height": "parent.height",
-          "x": "claude.weekly.reset.elapsed / 100 * (parent.width - 3)",
-          "width": "3",
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#00000099"
-            }
-          }
-        },
-        {
-          "id": "claude-weekly-segments-dark-pace-core",
-          "name": "dark Claude Code 7-day segments pace marker core",
-          "render": "(system.dark) * min(1, claude.weekly.reset.period)",
-          "parent": "claude-weekly-segments-dark",
-          "y": "0",
-          "height": "parent.height",
-          "x": "claude.weekly.reset.elapsed / 100 * (parent.width - 3) + 1",
-          "width": "1",
-          "background": {
-            "type": "colour",
-            "colour": {
-              "color": "#FFFFFFF2"
+              "color": "#FF2D95FF"
             }
           }
         },
@@ -698,30 +586,14 @@
           "name": "light Claude Code 7-day segments pace marker",
           "render": "(1 - system.dark) * min(1, claude.weekly.reset.period)",
           "parent": "claude-weekly-segments-light",
+          "x": "claude.weekly.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
+          "width": "2",
           "height": "parent.height",
-          "x": "claude.weekly.reset.elapsed / 100 * (parent.width - 3)",
-          "width": "3",
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#00000099"
-            }
-          }
-        },
-        {
-          "id": "claude-weekly-segments-light-pace-core",
-          "name": "light Claude Code 7-day segments pace marker core",
-          "render": "(1 - system.dark) * min(1, claude.weekly.reset.period)",
-          "parent": "claude-weekly-segments-light",
-          "y": "0",
-          "height": "parent.height",
-          "x": "claude.weekly.reset.elapsed / 100 * (parent.width - 3) + 1",
-          "width": "1",
-          "background": {
-            "type": "colour",
-            "colour": {
-              "color": "#FFFFFFF2"
+              "color": "#FF2D95FF"
             }
           }
         },
@@ -786,30 +658,14 @@
           "name": "dark Codex 5-hour segments pace marker",
           "render": "(system.dark) * min(1, codex.five_hour.reset.period)",
           "parent": "codex-session-segments-dark",
+          "x": "codex.five_hour.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
+          "width": "2",
           "height": "parent.height",
-          "x": "codex.five_hour.reset.elapsed / 100 * (parent.width - 3)",
-          "width": "3",
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#00000099"
-            }
-          }
-        },
-        {
-          "id": "codex-session-segments-dark-pace-core",
-          "name": "dark Codex 5-hour segments pace marker core",
-          "render": "(system.dark) * min(1, codex.five_hour.reset.period)",
-          "parent": "codex-session-segments-dark",
-          "y": "0",
-          "height": "parent.height",
-          "x": "codex.five_hour.reset.elapsed / 100 * (parent.width - 3) + 1",
-          "width": "1",
-          "background": {
-            "type": "colour",
-            "colour": {
-              "color": "#FFFFFFF2"
+              "color": "#FF2D95FF"
             }
           }
         },
@@ -866,30 +722,14 @@
           "name": "light Codex 5-hour segments pace marker",
           "render": "(1 - system.dark) * min(1, codex.five_hour.reset.period)",
           "parent": "codex-session-segments-light",
+          "x": "codex.five_hour.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
+          "width": "2",
           "height": "parent.height",
-          "x": "codex.five_hour.reset.elapsed / 100 * (parent.width - 3)",
-          "width": "3",
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#00000099"
-            }
-          }
-        },
-        {
-          "id": "codex-session-segments-light-pace-core",
-          "name": "light Codex 5-hour segments pace marker core",
-          "render": "(1 - system.dark) * min(1, codex.five_hour.reset.period)",
-          "parent": "codex-session-segments-light",
-          "y": "0",
-          "height": "parent.height",
-          "x": "codex.five_hour.reset.elapsed / 100 * (parent.width - 3) + 1",
-          "width": "1",
-          "background": {
-            "type": "colour",
-            "colour": {
-              "color": "#FFFFFFF2"
+              "color": "#FF2D95FF"
             }
           }
         },
@@ -946,30 +786,14 @@
           "name": "dark Codex 7-day segments pace marker",
           "render": "(system.dark) * min(1, codex.weekly.reset.period)",
           "parent": "codex-weekly-segments-dark",
+          "x": "codex.weekly.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
+          "width": "2",
           "height": "parent.height",
-          "x": "codex.weekly.reset.elapsed / 100 * (parent.width - 3)",
-          "width": "3",
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#00000099"
-            }
-          }
-        },
-        {
-          "id": "codex-weekly-segments-dark-pace-core",
-          "name": "dark Codex 7-day segments pace marker core",
-          "render": "(system.dark) * min(1, codex.weekly.reset.period)",
-          "parent": "codex-weekly-segments-dark",
-          "y": "0",
-          "height": "parent.height",
-          "x": "codex.weekly.reset.elapsed / 100 * (parent.width - 3) + 1",
-          "width": "1",
-          "background": {
-            "type": "colour",
-            "colour": {
-              "color": "#FFFFFFF2"
+              "color": "#FF2D95FF"
             }
           }
         },
@@ -1026,30 +850,14 @@
           "name": "light Codex 7-day segments pace marker",
           "render": "(1 - system.dark) * min(1, codex.weekly.reset.period)",
           "parent": "codex-weekly-segments-light",
+          "x": "codex.weekly.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
+          "width": "2",
           "height": "parent.height",
-          "x": "codex.weekly.reset.elapsed / 100 * (parent.width - 3)",
-          "width": "3",
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#00000099"
-            }
-          }
-        },
-        {
-          "id": "codex-weekly-segments-light-pace-core",
-          "name": "light Codex 7-day segments pace marker core",
-          "render": "(1 - system.dark) * min(1, codex.weekly.reset.period)",
-          "parent": "codex-weekly-segments-light",
-          "y": "0",
-          "height": "parent.height",
-          "x": "codex.weekly.reset.elapsed / 100 * (parent.width - 3) + 1",
-          "width": "1",
-          "background": {
-            "type": "colour",
-            "colour": {
-              "color": "#FFFFFFF2"
+              "color": "#FF2D95FF"
             }
           }
         },
@@ -1114,30 +922,14 @@
           "name": "dark Antigravity 5-hour segments pace marker",
           "render": "(system.dark) * min(1, antigravity.session.reset.period)",
           "parent": "antigravity-session-segments-dark",
+          "x": "antigravity.session.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
+          "width": "2",
           "height": "parent.height",
-          "x": "antigravity.session.reset.elapsed / 100 * (parent.width - 3)",
-          "width": "3",
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#00000099"
-            }
-          }
-        },
-        {
-          "id": "antigravity-session-segments-dark-pace-core",
-          "name": "dark Antigravity 5-hour segments pace marker core",
-          "render": "(system.dark) * min(1, antigravity.session.reset.period)",
-          "parent": "antigravity-session-segments-dark",
-          "y": "0",
-          "height": "parent.height",
-          "x": "antigravity.session.reset.elapsed / 100 * (parent.width - 3) + 1",
-          "width": "1",
-          "background": {
-            "type": "colour",
-            "colour": {
-              "color": "#FFFFFFF2"
+              "color": "#FF2D95FF"
             }
           }
         },
@@ -1194,30 +986,14 @@
           "name": "light Antigravity 5-hour segments pace marker",
           "render": "(1 - system.dark) * min(1, antigravity.session.reset.period)",
           "parent": "antigravity-session-segments-light",
+          "x": "antigravity.session.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
+          "width": "2",
           "height": "parent.height",
-          "x": "antigravity.session.reset.elapsed / 100 * (parent.width - 3)",
-          "width": "3",
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#00000099"
-            }
-          }
-        },
-        {
-          "id": "antigravity-session-segments-light-pace-core",
-          "name": "light Antigravity 5-hour segments pace marker core",
-          "render": "(1 - system.dark) * min(1, antigravity.session.reset.period)",
-          "parent": "antigravity-session-segments-light",
-          "y": "0",
-          "height": "parent.height",
-          "x": "antigravity.session.reset.elapsed / 100 * (parent.width - 3) + 1",
-          "width": "1",
-          "background": {
-            "type": "colour",
-            "colour": {
-              "color": "#FFFFFFF2"
+              "color": "#FF2D95FF"
             }
           }
         },
@@ -1274,30 +1050,14 @@
           "name": "dark Antigravity 7-day segments pace marker",
           "render": "(system.dark) * min(1, antigravity.weekly.reset.period)",
           "parent": "antigravity-weekly-segments-dark",
+          "x": "antigravity.weekly.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
+          "width": "2",
           "height": "parent.height",
-          "x": "antigravity.weekly.reset.elapsed / 100 * (parent.width - 3)",
-          "width": "3",
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#00000099"
-            }
-          }
-        },
-        {
-          "id": "antigravity-weekly-segments-dark-pace-core",
-          "name": "dark Antigravity 7-day segments pace marker core",
-          "render": "(system.dark) * min(1, antigravity.weekly.reset.period)",
-          "parent": "antigravity-weekly-segments-dark",
-          "y": "0",
-          "height": "parent.height",
-          "x": "antigravity.weekly.reset.elapsed / 100 * (parent.width - 3) + 1",
-          "width": "1",
-          "background": {
-            "type": "colour",
-            "colour": {
-              "color": "#FFFFFFF2"
+              "color": "#FF2D95FF"
             }
           }
         },
@@ -1354,30 +1114,14 @@
           "name": "light Antigravity 7-day segments pace marker",
           "render": "(1 - system.dark) * min(1, antigravity.weekly.reset.period)",
           "parent": "antigravity-weekly-segments-light",
+          "x": "antigravity.weekly.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
+          "width": "2",
           "height": "parent.height",
-          "x": "antigravity.weekly.reset.elapsed / 100 * (parent.width - 3)",
-          "width": "3",
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#00000099"
-            }
-          }
-        },
-        {
-          "id": "antigravity-weekly-segments-light-pace-core",
-          "name": "light Antigravity 7-day segments pace marker core",
-          "render": "(1 - system.dark) * min(1, antigravity.weekly.reset.period)",
-          "parent": "antigravity-weekly-segments-light",
-          "y": "0",
-          "height": "parent.height",
-          "x": "antigravity.weekly.reset.elapsed / 100 * (parent.width - 3) + 1",
-          "width": "1",
-          "background": {
-            "type": "colour",
-            "colour": {
-              "color": "#FFFFFFF2"
+              "color": "#FF2D95FF"
             }
           }
         },
@@ -1442,30 +1186,14 @@
           "name": "dark OpenCode 5-hour segments pace marker",
           "render": "(system.dark) * min(1, opencode.session.reset.period)",
           "parent": "opencode-session-segments-dark",
+          "x": "opencode.session.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
+          "width": "2",
           "height": "parent.height",
-          "x": "opencode.session.reset.elapsed / 100 * (parent.width - 3)",
-          "width": "3",
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#00000099"
-            }
-          }
-        },
-        {
-          "id": "opencode-session-segments-dark-pace-core",
-          "name": "dark OpenCode 5-hour segments pace marker core",
-          "render": "(system.dark) * min(1, opencode.session.reset.period)",
-          "parent": "opencode-session-segments-dark",
-          "y": "0",
-          "height": "parent.height",
-          "x": "opencode.session.reset.elapsed / 100 * (parent.width - 3) + 1",
-          "width": "1",
-          "background": {
-            "type": "colour",
-            "colour": {
-              "color": "#FFFFFFF2"
+              "color": "#FF2D95FF"
             }
           }
         },
@@ -1522,30 +1250,14 @@
           "name": "light OpenCode 5-hour segments pace marker",
           "render": "(1 - system.dark) * min(1, opencode.session.reset.period)",
           "parent": "opencode-session-segments-light",
+          "x": "opencode.session.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
+          "width": "2",
           "height": "parent.height",
-          "x": "opencode.session.reset.elapsed / 100 * (parent.width - 3)",
-          "width": "3",
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#00000099"
-            }
-          }
-        },
-        {
-          "id": "opencode-session-segments-light-pace-core",
-          "name": "light OpenCode 5-hour segments pace marker core",
-          "render": "(1 - system.dark) * min(1, opencode.session.reset.period)",
-          "parent": "opencode-session-segments-light",
-          "y": "0",
-          "height": "parent.height",
-          "x": "opencode.session.reset.elapsed / 100 * (parent.width - 3) + 1",
-          "width": "1",
-          "background": {
-            "type": "colour",
-            "colour": {
-              "color": "#FFFFFFF2"
+              "color": "#FF2D95FF"
             }
           }
         },
@@ -1602,30 +1314,14 @@
           "name": "dark OpenCode long-window segments pace marker",
           "render": "(system.dark) * min(1, opencode.weekly.reset.period)",
           "parent": "opencode-weekly-segments-dark",
+          "x": "opencode.weekly.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
+          "width": "2",
           "height": "parent.height",
-          "x": "opencode.weekly.reset.elapsed / 100 * (parent.width - 3)",
-          "width": "3",
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#00000099"
-            }
-          }
-        },
-        {
-          "id": "opencode-weekly-segments-dark-pace-core",
-          "name": "dark OpenCode long-window segments pace marker core",
-          "render": "(system.dark) * min(1, opencode.weekly.reset.period)",
-          "parent": "opencode-weekly-segments-dark",
-          "y": "0",
-          "height": "parent.height",
-          "x": "opencode.weekly.reset.elapsed / 100 * (parent.width - 3) + 1",
-          "width": "1",
-          "background": {
-            "type": "colour",
-            "colour": {
-              "color": "#FFFFFFF2"
+              "color": "#FF2D95FF"
             }
           }
         },
@@ -1682,30 +1378,14 @@
           "name": "light OpenCode long-window segments pace marker",
           "render": "(1 - system.dark) * min(1, opencode.weekly.reset.period)",
           "parent": "opencode-weekly-segments-light",
+          "x": "opencode.weekly.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
+          "width": "2",
           "height": "parent.height",
-          "x": "opencode.weekly.reset.elapsed / 100 * (parent.width - 3)",
-          "width": "3",
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#00000099"
-            }
-          }
-        },
-        {
-          "id": "opencode-weekly-segments-light-pace-core",
-          "name": "light OpenCode long-window segments pace marker core",
-          "render": "(1 - system.dark) * min(1, opencode.weekly.reset.period)",
-          "parent": "opencode-weekly-segments-light",
-          "y": "0",
-          "height": "parent.height",
-          "x": "opencode.weekly.reset.elapsed / 100 * (parent.width - 3) + 1",
-          "width": "1",
-          "background": {
-            "type": "colour",
-            "colour": {
-              "color": "#FFFFFFF2"
+              "color": "#FF2D95FF"
             }
           }
         },
