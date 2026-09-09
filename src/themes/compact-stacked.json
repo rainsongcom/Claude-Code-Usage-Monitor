@@ -118,8 +118,8 @@
         },
         {
           "id": "cursor-session-segments-dark-pace",
-          "name": "dark Cursor Auto segments pace marker",
-          "render": "(system.dark) * min(1, cursor.session.reset.period)",
+          "name": "dark Cursor Auto segments pace marker over track",
+          "render": "(system.dark) * min(1, cursor.session.reset.period) * (cursor.session.percentage < cursor.session.reset.elapsed)",
           "parent": "cursor-session-segments-dark",
           "x": "cursor.session.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
@@ -128,7 +128,23 @@
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#00A3FFFF"
+              "color": "#3DD6FFFF"
+            }
+          }
+        },
+        {
+          "id": "cursor-session-segments-dark-pace-over",
+          "name": "dark Cursor Auto segments pace marker over fill",
+          "render": "(system.dark) * min(1, cursor.session.reset.period) * (cursor.session.percentage >= cursor.session.reset.elapsed)",
+          "parent": "cursor-session-segments-dark",
+          "x": "cursor.session.reset.elapsed / 100 * (parent.width - 2)",
+          "y": "0",
+          "width": "2",
+          "height": "parent.height",
+          "background": {
+            "type": "colour",
+            "colour": {
+              "color": "#002E8AFF"
             }
           }
         },
@@ -182,8 +198,8 @@
         },
         {
           "id": "cursor-session-segments-light-pace",
-          "name": "light Cursor Auto segments pace marker",
-          "render": "(1 - system.dark) * min(1, cursor.session.reset.period)",
+          "name": "light Cursor Auto segments pace marker over track",
+          "render": "(1 - system.dark) * min(1, cursor.session.reset.period) * (cursor.session.percentage < cursor.session.reset.elapsed)",
           "parent": "cursor-session-segments-light",
           "x": "cursor.session.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
@@ -192,7 +208,23 @@
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#00A3FFFF"
+              "color": "#002E8AFF"
+            }
+          }
+        },
+        {
+          "id": "cursor-session-segments-light-pace-over",
+          "name": "light Cursor Auto segments pace marker over fill",
+          "render": "(1 - system.dark) * min(1, cursor.session.reset.period) * (cursor.session.percentage >= cursor.session.reset.elapsed)",
+          "parent": "cursor-session-segments-light",
+          "x": "cursor.session.reset.elapsed / 100 * (parent.width - 2)",
+          "y": "0",
+          "width": "2",
+          "height": "parent.height",
+          "background": {
+            "type": "colour",
+            "colour": {
+              "color": "#3DD6FFFF"
             }
           }
         },
@@ -246,8 +278,8 @@
         },
         {
           "id": "cursor-weekly-segments-dark-pace",
-          "name": "dark Cursor API segments pace marker",
-          "render": "(system.dark) * min(1, cursor.weekly.reset.period)",
+          "name": "dark Cursor API segments pace marker over track",
+          "render": "(system.dark) * min(1, cursor.weekly.reset.period) * (cursor.weekly.percentage < cursor.weekly.reset.elapsed)",
           "parent": "cursor-weekly-segments-dark",
           "x": "cursor.weekly.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
@@ -256,7 +288,23 @@
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#00A3FFFF"
+              "color": "#3DD6FFFF"
+            }
+          }
+        },
+        {
+          "id": "cursor-weekly-segments-dark-pace-over",
+          "name": "dark Cursor API segments pace marker over fill",
+          "render": "(system.dark) * min(1, cursor.weekly.reset.period) * (cursor.weekly.percentage >= cursor.weekly.reset.elapsed)",
+          "parent": "cursor-weekly-segments-dark",
+          "x": "cursor.weekly.reset.elapsed / 100 * (parent.width - 2)",
+          "y": "0",
+          "width": "2",
+          "height": "parent.height",
+          "background": {
+            "type": "colour",
+            "colour": {
+              "color": "#002E8AFF"
             }
           }
         },
@@ -310,8 +358,8 @@
         },
         {
           "id": "cursor-weekly-segments-light-pace",
-          "name": "light Cursor API segments pace marker",
-          "render": "(1 - system.dark) * min(1, cursor.weekly.reset.period)",
+          "name": "light Cursor API segments pace marker over track",
+          "render": "(1 - system.dark) * min(1, cursor.weekly.reset.period) * (cursor.weekly.percentage < cursor.weekly.reset.elapsed)",
           "parent": "cursor-weekly-segments-light",
           "x": "cursor.weekly.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
@@ -320,7 +368,23 @@
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#00A3FFFF"
+              "color": "#002E8AFF"
+            }
+          }
+        },
+        {
+          "id": "cursor-weekly-segments-light-pace-over",
+          "name": "light Cursor API segments pace marker over fill",
+          "render": "(1 - system.dark) * min(1, cursor.weekly.reset.period) * (cursor.weekly.percentage >= cursor.weekly.reset.elapsed)",
+          "parent": "cursor-weekly-segments-light",
+          "x": "cursor.weekly.reset.elapsed / 100 * (parent.width - 2)",
+          "y": "0",
+          "width": "2",
+          "height": "parent.height",
+          "background": {
+            "type": "colour",
+            "colour": {
+              "color": "#3DD6FFFF"
             }
           }
         },
@@ -391,8 +455,8 @@
         },
         {
           "id": "claude-session-segments-dark-pace",
-          "name": "dark Claude Code 5-hour segments pace marker",
-          "render": "(system.dark) * min(1, claude.session.reset.period)",
+          "name": "dark Claude Code 5-hour segments pace marker over track",
+          "render": "(system.dark) * min(1, claude.session.reset.period) * (claude.session.percentage < claude.session.reset.elapsed)",
           "parent": "claude-session-segments-dark",
           "x": "claude.session.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
@@ -401,7 +465,23 @@
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#00A3FFFF"
+              "color": "#3DD6FFFF"
+            }
+          }
+        },
+        {
+          "id": "claude-session-segments-dark-pace-over",
+          "name": "dark Claude Code 5-hour segments pace marker over fill",
+          "render": "(system.dark) * min(1, claude.session.reset.period) * (claude.session.percentage >= claude.session.reset.elapsed)",
+          "parent": "claude-session-segments-dark",
+          "x": "claude.session.reset.elapsed / 100 * (parent.width - 2)",
+          "y": "0",
+          "width": "2",
+          "height": "parent.height",
+          "background": {
+            "type": "colour",
+            "colour": {
+              "color": "#002E8AFF"
             }
           }
         },
@@ -455,8 +535,8 @@
         },
         {
           "id": "claude-session-segments-light-pace",
-          "name": "light Claude Code 5-hour segments pace marker",
-          "render": "(1 - system.dark) * min(1, claude.session.reset.period)",
+          "name": "light Claude Code 5-hour segments pace marker over track",
+          "render": "(1 - system.dark) * min(1, claude.session.reset.period) * (claude.session.percentage < claude.session.reset.elapsed)",
           "parent": "claude-session-segments-light",
           "x": "claude.session.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
@@ -465,7 +545,23 @@
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#00A3FFFF"
+              "color": "#002E8AFF"
+            }
+          }
+        },
+        {
+          "id": "claude-session-segments-light-pace-over",
+          "name": "light Claude Code 5-hour segments pace marker over fill",
+          "render": "(1 - system.dark) * min(1, claude.session.reset.period) * (claude.session.percentage >= claude.session.reset.elapsed)",
+          "parent": "claude-session-segments-light",
+          "x": "claude.session.reset.elapsed / 100 * (parent.width - 2)",
+          "y": "0",
+          "width": "2",
+          "height": "parent.height",
+          "background": {
+            "type": "colour",
+            "colour": {
+              "color": "#002E8AFF"
             }
           }
         },
@@ -519,8 +615,8 @@
         },
         {
           "id": "claude-weekly-segments-dark-pace",
-          "name": "dark Claude Code 7-day segments pace marker",
-          "render": "(system.dark) * min(1, claude.weekly.reset.period)",
+          "name": "dark Claude Code 7-day segments pace marker over track",
+          "render": "(system.dark) * min(1, claude.weekly.reset.period) * (claude.weekly.percentage < claude.weekly.reset.elapsed)",
           "parent": "claude-weekly-segments-dark",
           "x": "claude.weekly.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
@@ -529,7 +625,23 @@
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#00A3FFFF"
+              "color": "#3DD6FFFF"
+            }
+          }
+        },
+        {
+          "id": "claude-weekly-segments-dark-pace-over",
+          "name": "dark Claude Code 7-day segments pace marker over fill",
+          "render": "(system.dark) * min(1, claude.weekly.reset.period) * (claude.weekly.percentage >= claude.weekly.reset.elapsed)",
+          "parent": "claude-weekly-segments-dark",
+          "x": "claude.weekly.reset.elapsed / 100 * (parent.width - 2)",
+          "y": "0",
+          "width": "2",
+          "height": "parent.height",
+          "background": {
+            "type": "colour",
+            "colour": {
+              "color": "#002E8AFF"
             }
           }
         },
@@ -583,8 +695,8 @@
         },
         {
           "id": "claude-weekly-segments-light-pace",
-          "name": "light Claude Code 7-day segments pace marker",
-          "render": "(1 - system.dark) * min(1, claude.weekly.reset.period)",
+          "name": "light Claude Code 7-day segments pace marker over track",
+          "render": "(1 - system.dark) * min(1, claude.weekly.reset.period) * (claude.weekly.percentage < claude.weekly.reset.elapsed)",
           "parent": "claude-weekly-segments-light",
           "x": "claude.weekly.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
@@ -593,7 +705,23 @@
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#00A3FFFF"
+              "color": "#002E8AFF"
+            }
+          }
+        },
+        {
+          "id": "claude-weekly-segments-light-pace-over",
+          "name": "light Claude Code 7-day segments pace marker over fill",
+          "render": "(1 - system.dark) * min(1, claude.weekly.reset.period) * (claude.weekly.percentage >= claude.weekly.reset.elapsed)",
+          "parent": "claude-weekly-segments-light",
+          "x": "claude.weekly.reset.elapsed / 100 * (parent.width - 2)",
+          "y": "0",
+          "width": "2",
+          "height": "parent.height",
+          "background": {
+            "type": "colour",
+            "colour": {
+              "color": "#002E8AFF"
             }
           }
         },
@@ -655,8 +783,8 @@
         },
         {
           "id": "codex-session-segments-dark-pace",
-          "name": "dark Codex 5-hour segments pace marker",
-          "render": "(system.dark) * min(1, codex.five_hour.reset.period)",
+          "name": "dark Codex 5-hour segments pace marker over track",
+          "render": "(system.dark) * min(1, codex.five_hour.reset.period) * (codex.five_hour.percentage < codex.five_hour.reset.elapsed)",
           "parent": "codex-session-segments-dark",
           "x": "codex.five_hour.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
@@ -665,7 +793,23 @@
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#00A3FFFF"
+              "color": "#3DD6FFFF"
+            }
+          }
+        },
+        {
+          "id": "codex-session-segments-dark-pace-over",
+          "name": "dark Codex 5-hour segments pace marker over fill",
+          "render": "(system.dark) * min(1, codex.five_hour.reset.period) * (codex.five_hour.percentage >= codex.five_hour.reset.elapsed)",
+          "parent": "codex-session-segments-dark",
+          "x": "codex.five_hour.reset.elapsed / 100 * (parent.width - 2)",
+          "y": "0",
+          "width": "2",
+          "height": "parent.height",
+          "background": {
+            "type": "colour",
+            "colour": {
+              "color": "#002E8AFF"
             }
           }
         },
@@ -719,8 +863,8 @@
         },
         {
           "id": "codex-session-segments-light-pace",
-          "name": "light Codex 5-hour segments pace marker",
-          "render": "(1 - system.dark) * min(1, codex.five_hour.reset.period)",
+          "name": "light Codex 5-hour segments pace marker over track",
+          "render": "(1 - system.dark) * min(1, codex.five_hour.reset.period) * (codex.five_hour.percentage < codex.five_hour.reset.elapsed)",
           "parent": "codex-session-segments-light",
           "x": "codex.five_hour.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
@@ -729,7 +873,23 @@
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#00A3FFFF"
+              "color": "#002E8AFF"
+            }
+          }
+        },
+        {
+          "id": "codex-session-segments-light-pace-over",
+          "name": "light Codex 5-hour segments pace marker over fill",
+          "render": "(1 - system.dark) * min(1, codex.five_hour.reset.period) * (codex.five_hour.percentage >= codex.five_hour.reset.elapsed)",
+          "parent": "codex-session-segments-light",
+          "x": "codex.five_hour.reset.elapsed / 100 * (parent.width - 2)",
+          "y": "0",
+          "width": "2",
+          "height": "parent.height",
+          "background": {
+            "type": "colour",
+            "colour": {
+              "color": "#3DD6FFFF"
             }
           }
         },
@@ -783,8 +943,8 @@
         },
         {
           "id": "codex-weekly-segments-dark-pace",
-          "name": "dark Codex 7-day segments pace marker",
-          "render": "(system.dark) * min(1, codex.weekly.reset.period)",
+          "name": "dark Codex 7-day segments pace marker over track",
+          "render": "(system.dark) * min(1, codex.weekly.reset.period) * (codex.weekly.percentage < codex.weekly.reset.elapsed)",
           "parent": "codex-weekly-segments-dark",
           "x": "codex.weekly.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
@@ -793,7 +953,23 @@
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#00A3FFFF"
+              "color": "#3DD6FFFF"
+            }
+          }
+        },
+        {
+          "id": "codex-weekly-segments-dark-pace-over",
+          "name": "dark Codex 7-day segments pace marker over fill",
+          "render": "(system.dark) * min(1, codex.weekly.reset.period) * (codex.weekly.percentage >= codex.weekly.reset.elapsed)",
+          "parent": "codex-weekly-segments-dark",
+          "x": "codex.weekly.reset.elapsed / 100 * (parent.width - 2)",
+          "y": "0",
+          "width": "2",
+          "height": "parent.height",
+          "background": {
+            "type": "colour",
+            "colour": {
+              "color": "#002E8AFF"
             }
           }
         },
@@ -847,8 +1023,8 @@
         },
         {
           "id": "codex-weekly-segments-light-pace",
-          "name": "light Codex 7-day segments pace marker",
-          "render": "(1 - system.dark) * min(1, codex.weekly.reset.period)",
+          "name": "light Codex 7-day segments pace marker over track",
+          "render": "(1 - system.dark) * min(1, codex.weekly.reset.period) * (codex.weekly.percentage < codex.weekly.reset.elapsed)",
           "parent": "codex-weekly-segments-light",
           "x": "codex.weekly.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
@@ -857,7 +1033,23 @@
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#00A3FFFF"
+              "color": "#002E8AFF"
+            }
+          }
+        },
+        {
+          "id": "codex-weekly-segments-light-pace-over",
+          "name": "light Codex 7-day segments pace marker over fill",
+          "render": "(1 - system.dark) * min(1, codex.weekly.reset.period) * (codex.weekly.percentage >= codex.weekly.reset.elapsed)",
+          "parent": "codex-weekly-segments-light",
+          "x": "codex.weekly.reset.elapsed / 100 * (parent.width - 2)",
+          "y": "0",
+          "width": "2",
+          "height": "parent.height",
+          "background": {
+            "type": "colour",
+            "colour": {
+              "color": "#3DD6FFFF"
             }
           }
         },
@@ -919,8 +1111,8 @@
         },
         {
           "id": "antigravity-session-segments-dark-pace",
-          "name": "dark Antigravity 5-hour segments pace marker",
-          "render": "(system.dark) * min(1, antigravity.session.reset.period)",
+          "name": "dark Antigravity 5-hour segments pace marker over track",
+          "render": "(system.dark) * min(1, antigravity.session.reset.period) * (antigravity.session.percentage < antigravity.session.reset.elapsed)",
           "parent": "antigravity-session-segments-dark",
           "x": "antigravity.session.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
@@ -929,7 +1121,23 @@
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#00A3FFFF"
+              "color": "#3DD6FFFF"
+            }
+          }
+        },
+        {
+          "id": "antigravity-session-segments-dark-pace-over",
+          "name": "dark Antigravity 5-hour segments pace marker over fill",
+          "render": "(system.dark) * min(1, antigravity.session.reset.period) * (antigravity.session.percentage >= antigravity.session.reset.elapsed)",
+          "parent": "antigravity-session-segments-dark",
+          "x": "antigravity.session.reset.elapsed / 100 * (parent.width - 2)",
+          "y": "0",
+          "width": "2",
+          "height": "parent.height",
+          "background": {
+            "type": "colour",
+            "colour": {
+              "color": "#002E8AFF"
             }
           }
         },
@@ -983,8 +1191,8 @@
         },
         {
           "id": "antigravity-session-segments-light-pace",
-          "name": "light Antigravity 5-hour segments pace marker",
-          "render": "(1 - system.dark) * min(1, antigravity.session.reset.period)",
+          "name": "light Antigravity 5-hour segments pace marker over track",
+          "render": "(1 - system.dark) * min(1, antigravity.session.reset.period) * (antigravity.session.percentage < antigravity.session.reset.elapsed)",
           "parent": "antigravity-session-segments-light",
           "x": "antigravity.session.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
@@ -993,7 +1201,23 @@
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#00A3FFFF"
+              "color": "#002E8AFF"
+            }
+          }
+        },
+        {
+          "id": "antigravity-session-segments-light-pace-over",
+          "name": "light Antigravity 5-hour segments pace marker over fill",
+          "render": "(1 - system.dark) * min(1, antigravity.session.reset.period) * (antigravity.session.percentage >= antigravity.session.reset.elapsed)",
+          "parent": "antigravity-session-segments-light",
+          "x": "antigravity.session.reset.elapsed / 100 * (parent.width - 2)",
+          "y": "0",
+          "width": "2",
+          "height": "parent.height",
+          "background": {
+            "type": "colour",
+            "colour": {
+              "color": "#002E8AFF"
             }
           }
         },
@@ -1047,8 +1271,8 @@
         },
         {
           "id": "antigravity-weekly-segments-dark-pace",
-          "name": "dark Antigravity 7-day segments pace marker",
-          "render": "(system.dark) * min(1, antigravity.weekly.reset.period)",
+          "name": "dark Antigravity 7-day segments pace marker over track",
+          "render": "(system.dark) * min(1, antigravity.weekly.reset.period) * (antigravity.weekly.percentage < antigravity.weekly.reset.elapsed)",
           "parent": "antigravity-weekly-segments-dark",
           "x": "antigravity.weekly.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
@@ -1057,7 +1281,23 @@
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#00A3FFFF"
+              "color": "#3DD6FFFF"
+            }
+          }
+        },
+        {
+          "id": "antigravity-weekly-segments-dark-pace-over",
+          "name": "dark Antigravity 7-day segments pace marker over fill",
+          "render": "(system.dark) * min(1, antigravity.weekly.reset.period) * (antigravity.weekly.percentage >= antigravity.weekly.reset.elapsed)",
+          "parent": "antigravity-weekly-segments-dark",
+          "x": "antigravity.weekly.reset.elapsed / 100 * (parent.width - 2)",
+          "y": "0",
+          "width": "2",
+          "height": "parent.height",
+          "background": {
+            "type": "colour",
+            "colour": {
+              "color": "#002E8AFF"
             }
           }
         },
@@ -1111,8 +1351,8 @@
         },
         {
           "id": "antigravity-weekly-segments-light-pace",
-          "name": "light Antigravity 7-day segments pace marker",
-          "render": "(1 - system.dark) * min(1, antigravity.weekly.reset.period)",
+          "name": "light Antigravity 7-day segments pace marker over track",
+          "render": "(1 - system.dark) * min(1, antigravity.weekly.reset.period) * (antigravity.weekly.percentage < antigravity.weekly.reset.elapsed)",
           "parent": "antigravity-weekly-segments-light",
           "x": "antigravity.weekly.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
@@ -1121,7 +1361,23 @@
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#00A3FFFF"
+              "color": "#002E8AFF"
+            }
+          }
+        },
+        {
+          "id": "antigravity-weekly-segments-light-pace-over",
+          "name": "light Antigravity 7-day segments pace marker over fill",
+          "render": "(1 - system.dark) * min(1, antigravity.weekly.reset.period) * (antigravity.weekly.percentage >= antigravity.weekly.reset.elapsed)",
+          "parent": "antigravity-weekly-segments-light",
+          "x": "antigravity.weekly.reset.elapsed / 100 * (parent.width - 2)",
+          "y": "0",
+          "width": "2",
+          "height": "parent.height",
+          "background": {
+            "type": "colour",
+            "colour": {
+              "color": "#002E8AFF"
             }
           }
         },
@@ -1183,8 +1439,8 @@
         },
         {
           "id": "opencode-session-segments-dark-pace",
-          "name": "dark OpenCode 5-hour segments pace marker",
-          "render": "(system.dark) * min(1, opencode.session.reset.period)",
+          "name": "dark OpenCode 5-hour segments pace marker over track",
+          "render": "(system.dark) * min(1, opencode.session.reset.period) * (opencode.session.percentage < opencode.session.reset.elapsed)",
           "parent": "opencode-session-segments-dark",
           "x": "opencode.session.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
@@ -1193,7 +1449,23 @@
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#00A3FFFF"
+              "color": "#3DD6FFFF"
+            }
+          }
+        },
+        {
+          "id": "opencode-session-segments-dark-pace-over",
+          "name": "dark OpenCode 5-hour segments pace marker over fill",
+          "render": "(system.dark) * min(1, opencode.session.reset.period) * (opencode.session.percentage >= opencode.session.reset.elapsed)",
+          "parent": "opencode-session-segments-dark",
+          "x": "opencode.session.reset.elapsed / 100 * (parent.width - 2)",
+          "y": "0",
+          "width": "2",
+          "height": "parent.height",
+          "background": {
+            "type": "colour",
+            "colour": {
+              "color": "#002E8AFF"
             }
           }
         },
@@ -1247,8 +1519,8 @@
         },
         {
           "id": "opencode-session-segments-light-pace",
-          "name": "light OpenCode 5-hour segments pace marker",
-          "render": "(1 - system.dark) * min(1, opencode.session.reset.period)",
+          "name": "light OpenCode 5-hour segments pace marker over track",
+          "render": "(1 - system.dark) * min(1, opencode.session.reset.period) * (opencode.session.percentage < opencode.session.reset.elapsed)",
           "parent": "opencode-session-segments-light",
           "x": "opencode.session.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
@@ -1257,7 +1529,23 @@
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#00A3FFFF"
+              "color": "#002E8AFF"
+            }
+          }
+        },
+        {
+          "id": "opencode-session-segments-light-pace-over",
+          "name": "light OpenCode 5-hour segments pace marker over fill",
+          "render": "(1 - system.dark) * min(1, opencode.session.reset.period) * (opencode.session.percentage >= opencode.session.reset.elapsed)",
+          "parent": "opencode-session-segments-light",
+          "x": "opencode.session.reset.elapsed / 100 * (parent.width - 2)",
+          "y": "0",
+          "width": "2",
+          "height": "parent.height",
+          "background": {
+            "type": "colour",
+            "colour": {
+              "color": "#3DD6FFFF"
             }
           }
         },
@@ -1311,8 +1599,8 @@
         },
         {
           "id": "opencode-weekly-segments-dark-pace",
-          "name": "dark OpenCode long-window segments pace marker",
-          "render": "(system.dark) * min(1, opencode.weekly.reset.period)",
+          "name": "dark OpenCode long-window segments pace marker over track",
+          "render": "(system.dark) * min(1, opencode.weekly.reset.period) * (opencode.weekly.percentage < opencode.weekly.reset.elapsed)",
           "parent": "opencode-weekly-segments-dark",
           "x": "opencode.weekly.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
@@ -1321,7 +1609,23 @@
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#00A3FFFF"
+              "color": "#3DD6FFFF"
+            }
+          }
+        },
+        {
+          "id": "opencode-weekly-segments-dark-pace-over",
+          "name": "dark OpenCode long-window segments pace marker over fill",
+          "render": "(system.dark) * min(1, opencode.weekly.reset.period) * (opencode.weekly.percentage >= opencode.weekly.reset.elapsed)",
+          "parent": "opencode-weekly-segments-dark",
+          "x": "opencode.weekly.reset.elapsed / 100 * (parent.width - 2)",
+          "y": "0",
+          "width": "2",
+          "height": "parent.height",
+          "background": {
+            "type": "colour",
+            "colour": {
+              "color": "#002E8AFF"
             }
           }
         },
@@ -1375,8 +1679,8 @@
         },
         {
           "id": "opencode-weekly-segments-light-pace",
-          "name": "light OpenCode long-window segments pace marker",
-          "render": "(1 - system.dark) * min(1, opencode.weekly.reset.period)",
+          "name": "light OpenCode long-window segments pace marker over track",
+          "render": "(1 - system.dark) * min(1, opencode.weekly.reset.period) * (opencode.weekly.percentage < opencode.weekly.reset.elapsed)",
           "parent": "opencode-weekly-segments-light",
           "x": "opencode.weekly.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
@@ -1385,7 +1689,23 @@
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#00A3FFFF"
+              "color": "#002E8AFF"
+            }
+          }
+        },
+        {
+          "id": "opencode-weekly-segments-light-pace-over",
+          "name": "light OpenCode long-window segments pace marker over fill",
+          "render": "(1 - system.dark) * min(1, opencode.weekly.reset.period) * (opencode.weekly.percentage >= opencode.weekly.reset.elapsed)",
+          "parent": "opencode-weekly-segments-light",
+          "x": "opencode.weekly.reset.elapsed / 100 * (parent.width - 2)",
+          "y": "0",
+          "width": "2",
+          "height": "parent.height",
+          "background": {
+            "type": "colour",
+            "colour": {
+              "color": "#3DD6FFFF"
             }
           }
         },

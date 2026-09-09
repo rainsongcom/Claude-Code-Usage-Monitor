@@ -574,12 +574,12 @@ fn the_authored_themes_carry_a_working_pace_marker_on_every_window_bar() {
         let markers: Vec<_> = theme.surfaces[0]
             .children
             .iter()
-            .filter(|child| child.id.ends_with("-pace"))
+            .filter(|child| child.id.contains("-pace"))
             .collect();
         assert_eq!(
             markers.len(),
-            20,
-            "{name} should mark every window bar and no credits bar"
+            40,
+            "{name} should give every window bar a marker for each surface it can              land on, and no credits bar a marker at all"
         );
         for marker in &markers {
             for (field, expression) in [
