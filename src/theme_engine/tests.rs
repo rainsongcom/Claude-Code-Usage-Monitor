@@ -576,11 +576,26 @@ fn the_authored_themes_carry_a_working_pace_marker_on_every_window_bar() {
             .iter()
             .filter(|child| child.id.contains("-pace"))
             .collect();
-        assert_eq!(
-            markers.len(),
-            40,
-            "{name} should give every window bar a marker for each surface it can              land on, and no credits bar a marker at all"
-        );
+        // A bar can need one marker or two depending on whether one tone reads
+        // on both its fill and its track, so count bars rather than layers.
+        let marked: std::collections::HashSet<&str> = markers
+            .iter()
+            .filter_map(|marker| marker.parent.as_deref())
+            .collect();
+        for bar in theme.surfaces[0].children.iter() {
+            let SceneContent::Progress { value, .. } = &bar.content else {
+                continue;
+            };
+            let is_credits = value.0.ends_with(".credits.percentage");
+            assert_eq!(
+                marked.contains(bar.id.as_str()),
+                !is_credits,
+                "{name}: {} should{} carry a pace marker",
+                bar.id,
+                if is_credits { " not" } else { "" }
+            );
+        }
+        assert!(!marked.is_empty(), "{name} should mark some bars");
         for marker in &markers {
             for (field, expression) in [
                 ("render", &marker.render),
