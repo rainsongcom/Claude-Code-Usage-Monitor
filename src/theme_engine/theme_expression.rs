@@ -545,34 +545,52 @@ pub(super) fn localized<'a>(context: &'a DataContext, name: &str, fallback: &'a 
     context.get_string(name).unwrap_or(fallback)
 }
 
+/// Character width of the widest shape `format_countdown` builds: two digits
+/// and a suffix, a space, then two more digits and a suffix. Derived from the
+/// localized suffixes rather than assumed, because they are not one character
+/// in every language.
+fn countdown_width(leading_suffix: &str, trailing_suffix: &str) -> usize {
+    "00 00".chars().count() + leading_suffix.chars().count() + trailing_suffix.chars().count()
+}
+
+/// Two units at most, and never a zero leading unit: "5d 13h", "2h 38m", then
+/// a bare "5m" once the hour field would only ever read "00h". Left-padding
+/// with spaces keeps every rendering the same width, so rows stacked on top of
+/// each other stay aligned as the value falls. The single-unit
+/// `duration_short` cannot do that: "1h" and "38m" are not the same width, so
+/// everything after them moves.
+fn format_countdown(value: f64, context: &DataContext) -> String {
+    let day_suffix = localized(context, "i18n.day_suffix", "d");
+    let hour_suffix = localized(context, "i18n.hour_suffix", "h");
+    let minute_suffix = localized(context, "i18n.minute_suffix", "m");
+
+    let seconds = value.max(0.0).round() as u64;
+    let days = seconds / 86_400;
+    let hours = seconds % 86_400 / 3_600;
+    let minutes = seconds % 3_600 / 60;
+
+    // Days present: minutes are dropped rather than rounded into the hour.
+    let text = if days > 0 {
+        format!("{days}{day_suffix} {hours:02}{hour_suffix}")
+    } else if hours > 0 {
+        format!("{hours}{hour_suffix} {minutes:02}{minute_suffix}")
+    } else {
+        format!("{minutes}{minute_suffix}")
+    };
+
+    // A day count past two digits just runs wider. The session, weekly, and
+    // monthly windows this formats never reach it.
+    let width =
+        countdown_width(day_suffix, hour_suffix).max(countdown_width(hour_suffix, minute_suffix));
+    format!("{text:>width$}")
+}
+
 pub(super) fn format_value(value: f64, format: &str, context: &DataContext) -> String {
     if let Some(value) = format_timestamp(value, format, context) {
         return value;
     }
     if format.eq_ignore_ascii_case("countdown") {
-        // Always two units, each two digits, so the text keeps its width as
-        // the value falls. Rows stacked on top of each other stay aligned
-        // that way, which the single-unit `duration_short` cannot do: "1h"
-        // and "38m" are not the same width, so everything after them moves.
-        let seconds = value.max(0.0).round() as u64;
-        let days = seconds / 86_400;
-        let hours = seconds % 86_400 / 3_600;
-        let minutes = seconds % 3_600 / 60;
-        return if days > 0 {
-            format!(
-                "{days:02}{} {hours:02}{}",
-                localized(context, "i18n.day_suffix", "d"),
-                localized(context, "i18n.hour_suffix", "h")
-            )
-        } else {
-            // Under an hour still shows the hour field, as "00h 05m", rather
-            // than dropping to minutes alone and losing the alignment.
-            format!(
-                "{hours:02}{} {minutes:02}{}",
-                localized(context, "i18n.hour_suffix", "h"),
-                localized(context, "i18n.minute_suffix", "m")
-            )
-        };
+        return format_countdown(value, context);
     }
     if format.eq_ignore_ascii_case("duration_short") {
         let seconds = value.max(0.0).round() as u64;

@@ -295,17 +295,18 @@ fn templates_apply_numeric_character_formats() {
 }
 
 #[test]
-fn countdown_keeps_two_fixed_width_units() {
+fn countdown_drops_a_zero_leading_unit_and_pads_to_one_width() {
     let mut context = DataContext::default();
     for (seconds, expected) in [
-        (5.0 * 86_400.0 + 13.0 * 3_600.0, "05d 13h"),
+        (30.0 * 86_400.0 + 5.0 * 3_600.0, "30d 05h"),
+        (5.0 * 86_400.0 + 13.0 * 3_600.0, " 5d 13h"),
         // Days present: minutes are dropped, not rounded into the hour.
-        (86_400.0 + 59.0 * 60.0, "01d 00h"),
-        (2.0 * 3_600.0 + 38.0 * 60.0, "02h 38m"),
-        // Under an hour keeps the hour field so the width never changes.
-        (5.0 * 60.0, "00h 05m"),
-        (30.0, "00h 00m"),
-        (0.0, "00h 00m"),
+        (86_400.0 + 59.0 * 60.0, " 1d 00h"),
+        (2.0 * 3_600.0 + 38.0 * 60.0, " 2h 38m"),
+        // Under an hour drops the hour field rather than showing "00h".
+        (5.0 * 60.0, "     5m"),
+        (30.0, "     0m"),
+        (0.0, "     0m"),
     ] {
         context.insert("reset", seconds);
         assert_eq!(
@@ -314,18 +315,53 @@ fn countdown_keeps_two_fixed_width_units() {
             "{seconds} seconds"
         );
     }
+    let widths: std::collections::HashSet<usize> =
+        [30.0 * 86_400.0, 5.0 * 86_400.0, 2.0 * 3_600.0, 60.0, 0.0]
+            .into_iter()
+            .map(|seconds| {
+                context.insert("reset", seconds);
+                format_template("{reset:countdown}", &context)
+                    .chars()
+                    .count()
+            })
+            .collect();
+    assert_eq!(
+        widths.len(),
+        1,
+        "every countdown should render the same width"
+    );
+}
+
+#[test]
+fn countdown_stays_one_width_with_multi_character_suffixes() {
+    // Korean suffixes are not one character each, so the padding target has to
+    // come from the suffixes in use rather than from the English shape.
+    let base = DataContext::from_usage_with_runtime(
+        None,
+        &Canvas::default(),
+        ThemeRuntime::default().with_language(LanguageId::from_code("ko").unwrap()),
+    );
+    let render = |seconds: f64| {
+        let mut context = base.clone();
+        context.insert("reset", seconds);
+        format_template("{reset:countdown}", &context)
+    };
+    assert_eq!(render(5.0 * 86_400.0 + 13.0 * 3_600.0), " 5일 13시간");
+    assert_eq!(render(2.0 * 3_600.0 + 38.0 * 60.0), " 2시간 38분");
+    assert_eq!(render(5.0 * 60.0), "      5분");
     let widths: std::collections::HashSet<usize> = [
-        5.0 * 86_400.0,
-        2.0 * 3_600.0,
-        60.0,
+        5.0 * 86_400.0 + 13.0 * 3_600.0,
+        2.0 * 3_600.0 + 38.0 * 60.0,
+        5.0 * 60.0,
     ]
     .into_iter()
-    .map(|seconds| {
-        context.insert("reset", seconds);
-        format_template("{reset:countdown}", &context).chars().count()
-    })
+    .map(|seconds| render(seconds).chars().count())
     .collect();
-    assert_eq!(widths.len(), 1, "every countdown should render the same width");
+    assert_eq!(
+        widths.len(),
+        1,
+        "localized countdowns should render the same width"
+    );
 }
 
 #[test]
