@@ -295,6 +295,240 @@ fn templates_apply_numeric_character_formats() {
 }
 
 #[test]
+fn window_period_labels_parse_only_real_durations() {
+    for (label, expected) in [
+        ("5h", Some(18_000.0)),
+        ("7d", Some(604_800.0)),
+        ("30d", Some(2_592_000.0)),
+        // Providers do send upper case in this field, so the unit is not
+        // case sensitive.
+        ("7D", Some(604_800.0)),
+        (" 7d ", Some(604_800.0)),
+        // Parses, but a zero-length window is still no window: the elapsed
+        // share rejects it below rather than dividing by zero here.
+        ("0d", Some(0.0)),
+        // Cursor labels its window this way. There is no duration to read.
+        ("API", None),
+        ("7", None),
+        ("7w", None),
+        // The localized window labels ("7일") must never be mistaken for one.
+        ("7일", None),
+        ("", None),
+    ] {
+        assert_eq!(
+            parse_window_period_seconds(label),
+            expected,
+            "label {label:?}"
+        );
+    }
+}
+
+#[test]
+fn elapsed_share_spans_the_window_and_clamps_outside_it() {
+    let five_hours = Some(18_000.0);
+    for (remaining, period, expected) in [
+        // A window with all of its time left has none of it spent.
+        (18_000.0, five_hours, Some(0.0)),
+        (9_000.0, five_hours, Some(50.0)),
+        (0.0, five_hours, Some(100.0)),
+        // More time left than the window is long, which a clock disagreeing
+        // with the server can produce. Report the start, not a negative.
+        (25_000.0, five_hours, Some(0.0)),
+        // A reset already past reads as spent, not as over 100.
+        (-600.0, five_hours, Some(100.0)),
+        // Without a window length there is no share to report.
+        (9_000.0, None, None),
+        (9_000.0, Some(0.0), None),
+        (9_000.0, Some(-1.0), None),
+    ] {
+        assert_eq!(
+            elapsed_percentage(remaining, period),
+            expected,
+            "{remaining}s left of {period:?}"
+        );
+    }
+}
+
+#[test]
+fn reset_periods_are_published_per_window_and_zero_when_unknown() {
+    let section = |seconds: u64| crate::models::UsageSection {
+        percentage: 40.0,
+        resets_at: Some(std::time::SystemTime::now() + std::time::Duration::from_secs(seconds)),
+    };
+    let usage = AppUsageData::from_iter([(
+        ProviderId::Claude,
+        crate::models::UsageData {
+            // Two of the five hours left, so three are spent.
+            session: section(2 * 3_600),
+            weekly: section(5 * 86_400),
+            weekly_label: None,
+            monthly: None,
+            scoped: None,
+            credits: None,
+            stale: false,
+        },
+    )]);
+    let context = DataContext::from_usage_with_runtime(
+        Some(&usage),
+        &Canvas::default(),
+        ThemeRuntime::default(),
+    );
+
+    assert_eq!(
+        context.get("claude.session.reset.period"),
+        Some(18_000.0),
+        "the session window is five hours by definition"
+    );
+    assert_eq!(
+        context.get("claude.weekly.reset.period"),
+        Some(604_800.0),
+        "an unlabelled weekly window is seven days"
+    );
+    // A calendar month varies in length and a scoped window never publishes
+    // one, so both report no period and no share.
+    for window in ["monthly", "scoped"] {
+        assert_eq!(
+            context.get(&format!("claude.{window}.reset.period")),
+            Some(0.0),
+            "{window} should report no period"
+        );
+        assert_eq!(
+            context.get(&format!("claude.{window}.reset.elapsed")),
+            Some(0.0),
+            "{window} should report no elapsed share"
+        );
+    }
+
+    // Read against the wall clock, so allow the seconds this test takes.
+    let session_elapsed = context.get("claude.session.reset.elapsed").unwrap();
+    assert!(
+        (session_elapsed - 60.0).abs() < 1.0,
+        "three of five hours spent should read near 60, got {session_elapsed}"
+    );
+    let weekly_elapsed = context.get("claude.weekly.reset.elapsed").unwrap();
+    assert!(
+        (weekly_elapsed - 28.571).abs() < 1.0,
+        "two of seven days spent should read near 28.6, got {weekly_elapsed}"
+    );
+    assert_eq!(
+        context.get("active.session.reset.period"),
+        Some(18_000.0),
+        "the active alias should carry the same period"
+    );
+}
+
+#[test]
+fn a_window_labelled_without_a_duration_reports_no_period() {
+    let usage = AppUsageData::from_iter([(
+        ProviderId::Cursor,
+        crate::models::UsageData {
+            session: crate::models::UsageSection::default(),
+            weekly: crate::models::UsageSection {
+                percentage: 40.0,
+                resets_at: Some(std::time::SystemTime::now() + std::time::Duration::from_secs(60)),
+            },
+            // Cursor reports its window as "API" rather than a duration.
+            weekly_label: Some("API".into()),
+            monthly: None,
+            scoped: None,
+            credits: None,
+            stale: false,
+        },
+    )]);
+    let context = DataContext::from_usage_with_runtime(
+        Some(&usage),
+        &Canvas::default(),
+        ThemeRuntime::default(),
+    );
+
+    assert_eq!(context.get("cursor.weekly.reset.period"), Some(0.0));
+    assert_eq!(context.get("cursor.weekly.reset.elapsed"), Some(0.0));
+    assert_eq!(
+        context.get_string("cursor.weekly.label"),
+        Some("API"),
+        "the label itself should still reach themes"
+    );
+}
+
+#[test]
+fn the_authored_themes_carry_a_working_pace_marker_on_every_window_bar() {
+    let section = |seconds: u64| crate::models::UsageSection {
+        percentage: 55.0,
+        resets_at: Some(std::time::SystemTime::now() + std::time::Duration::from_secs(seconds)),
+    };
+    let usage = AppUsageData::from_iter(PROVIDER_DESCRIPTORS.iter().map(|descriptor| {
+        (
+            descriptor.id,
+            crate::models::UsageData {
+                session: section(2 * 3_600),
+                weekly: section(3 * 86_400),
+                weekly_label: None,
+                monthly: None,
+                scoped: None,
+                credits: None,
+                stale: false,
+            },
+        )
+    }));
+    let runtime = ThemeRuntime::from_providers(ProviderSet::from_enabled(
+        PROVIDER_DESCRIPTORS.iter().map(|descriptor| descriptor.id),
+    ));
+    let mut context =
+        DataContext::from_usage_with_runtime(Some(&usage), &Canvas::default(), runtime);
+    // Only geometry resolution publishes these, so stand in for a bar. Without
+    // them a marker's own expressions cannot be evaluated in isolation.
+    context.insert("parent.width", 52.0);
+    context.insert("parent.height", 6.0);
+
+    for name in ["compact-stacked", "compact-stacked-fable"] {
+        let path = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+            .join("src")
+            .join("themes")
+            .join(format!("{name}.json"));
+        let mut theme: ThemeDocument =
+            serde_json::from_str(&std::fs::read_to_string(&path).unwrap()).unwrap();
+        theme.prepare_runtime();
+        assert_eq!(
+            theme.validate(),
+            Vec::<String>::new(),
+            "{name} should be valid"
+        );
+
+        let markers: Vec<_> = theme.surfaces[0]
+            .children
+            .iter()
+            .filter(|child| child.id.ends_with("-pace"))
+            .collect();
+        assert_eq!(
+            markers.len(),
+            20,
+            "{name} should mark every window bar and no credits bar"
+        );
+        for marker in &markers {
+            for (field, expression) in [
+                ("render", &marker.render),
+                ("x", &marker.x),
+                ("height", &marker.height),
+            ] {
+                let evaluated = evaluate(&expression.0, &context);
+                assert!(
+                    evaluated.is_ok(),
+                    "{name} {}.{field}: {evaluated:?}",
+                    marker.id
+                );
+            }
+        }
+
+        let rendered = render_theme_surface_with_runtime(&theme, 0, Some(&usage), runtime);
+        assert!(
+            rendered.warnings.is_empty(),
+            "{name}: {:?}",
+            rendered.warnings
+        );
+    }
+}
+
+#[test]
 fn countdown_drops_a_zero_leading_unit_and_pads_to_one_width() {
     let mut context = DataContext::default();
     for (seconds, expected) in [

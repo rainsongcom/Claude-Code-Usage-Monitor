@@ -1269,6 +1269,39 @@ impl ThemeRuntime {
     }
 }
 
+/// The five-hour allowance, the one window whose length its own name settles.
+const FIVE_HOUR_PERIOD_SECONDS: f64 = 5.0 * 3_600.0;
+/// What `weekly` spans when a provider sends no label for the window.
+const DEFAULT_WEEKLY_PERIOD_SECONDS: f64 = 7.0 * 86_400.0;
+
+/// Seconds spanned by a provider's window label, such as "7d" or "30d".
+///
+/// `None` for a label that is not a duration at all -- Cursor reports its
+/// window as "API" -- because a window of unknown length has to stay unknown.
+/// Guessing one would put a pace marker somewhere convincing and wrong.
+fn parse_window_period_seconds(label: &str) -> Option<f64> {
+    let label = label.trim();
+    let split = label.find(|character: char| !character.is_ascii_digit())?;
+    let (count, unit) = label.split_at(split);
+    let count: f64 = count.parse().ok()?;
+    let unit_seconds = match unit.trim().to_ascii_lowercase().as_str() {
+        "h" => 3_600.0,
+        "d" => 86_400.0,
+        _ => return None,
+    };
+    Some(count * unit_seconds)
+}
+
+/// Share of a window already spent, 0 to 100, from the time left on it.
+///
+/// Percent rather than a 0-to-1 fraction so a theme can bind it straight to a
+/// `Progress` value, which is what every other usage figure here reports.
+/// `None` when the window's length is unknown.
+fn elapsed_percentage(remaining_seconds: f64, period_seconds: Option<f64>) -> Option<f64> {
+    let period = period_seconds.filter(|period| *period > 0.0)?;
+    Some((((period - remaining_seconds) / period) * 100.0).clamp(0.0, 100.0))
+}
+
 impl DataContext {
     pub fn from_usage(data: Option<&AppUsageData>, canvas: &Canvas) -> Self {
         Self::from_usage_with_runtime(data, canvas, ThemeRuntime::default())
@@ -1428,7 +1461,9 @@ impl DataContext {
         let scoped_percentage = scoped.map(|scoped| scoped.percentage).unwrap_or(0.0);
         self.insert_string(
             &format!("{name}.scoped.label"),
-            scoped.map(|scoped| scoped.model.clone()).unwrap_or_default(),
+            scoped
+                .map(|scoped| scoped.model.clone())
+                .unwrap_or_default(),
         );
         // The label column is sized for the two-character window names next
         // to it ("5h", "7d"), so a model name gets a clipped form to match.
@@ -1509,18 +1544,49 @@ impl DataContext {
         let (monthly_unix, monthly_seconds) =
             reset_value(monthly.and_then(|value| value.resets_at));
         let (scoped_unix, scoped_seconds) = reset_value(scoped.and_then(|value| value.resets_at));
-        for (window, unix, seconds) in [
-            ("session", session_unix, session_seconds),
-            ("five_hour", five_hour_unix, five_hour_seconds),
-            ("weekly", weekly_unix, weekly_seconds),
-            ("monthly", monthly_unix, monthly_seconds),
-            ("scoped", scoped_unix, scoped_seconds),
+        // A window's length is absent from every provider's response, so it
+        // comes from the provider's own label where there is one. Claude sends
+        // no label and runs a seven-day week; Cursor sends "API", which is not
+        // a duration and leaves the window's length genuinely unknown.
+        let weekly_period = match usage.and_then(|usage| usage.weekly_label.as_deref()) {
+            Some(label) => parse_window_period_seconds(label),
+            None => Some(DEFAULT_WEEKLY_PERIOD_SECONDS),
+        };
+        let session_period = if use_codex_session_fallback {
+            weekly_period
+        } else {
+            Some(FIVE_HOUR_PERIOD_SECONDS)
+        };
+        for (window, unix, seconds, period) in [
+            ("session", session_unix, session_seconds, session_period),
+            (
+                "five_hour",
+                five_hour_unix,
+                five_hour_seconds,
+                Some(FIVE_HOUR_PERIOD_SECONDS),
+            ),
+            ("weekly", weekly_unix, weekly_seconds, weekly_period),
+            // A calendar month varies in length and a scoped window's span is
+            // not published at all, so neither reports a period.
+            ("monthly", monthly_unix, monthly_seconds, None),
+            ("scoped", scoped_unix, scoped_seconds, None),
         ] {
             self.insert(&format!("{name}.{window}.reset.unix"), unix);
             self.insert(&format!("{name}.{window}.reset.seconds"), seconds);
             self.insert(&format!("{name}.{window}.reset.minutes"), seconds / 60.0);
             self.insert(&format!("{name}.{window}.reset.hours"), seconds / 3600.0);
             self.insert(&format!("{name}.{window}.reset.days"), seconds / 86400.0);
+            // Zero period marks a window of unknown length. Themes gate a pace
+            // marker on it, because `reset.elapsed` cannot say on its own
+            // whether a reading of 0 means "just reset" or "no idea".
+            self.insert(
+                &format!("{name}.{window}.reset.period"),
+                period.unwrap_or(0.0),
+            );
+            self.insert(
+                &format!("{name}.{window}.reset.elapsed"),
+                elapsed_percentage(seconds, period).unwrap_or(0.0),
+            );
         }
     }
 
