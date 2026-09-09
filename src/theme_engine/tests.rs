@@ -451,6 +451,18 @@ fn a_window_labelled_without_a_duration_reports_no_period() {
 }
 
 #[test]
+fn themes_are_stored_beside_the_settings_that_select_them() {
+    // A portable copy keeps settings in a `data` folder next to the
+    // executable. Themes have to follow, or the app renders one set while
+    // recording paths against another.
+    assert_eq!(
+        themes_directory(),
+        crate::app_settings::app_data_directory().join("themes")
+    );
+    assert_eq!(assets_directory(), themes_directory().join("assets"));
+}
+
+#[test]
 fn the_authored_themes_carry_a_working_pace_marker_on_every_window_bar() {
     let section = |seconds: u64| crate::models::UsageSection {
         percentage: 55.0,
@@ -497,12 +509,12 @@ fn the_authored_themes_carry_a_working_pace_marker_on_every_window_bar() {
         let markers: Vec<_> = theme.surfaces[0]
             .children
             .iter()
-            .filter(|child| child.id.ends_with("-pace"))
+            .filter(|child| child.id.contains("-pace"))
             .collect();
         assert_eq!(
             markers.len(),
-            20,
-            "{name} should mark every window bar and no credits bar"
+            40,
+            "{name} should give every window bar a halo and a core, and no credits bar either"
         );
         for marker in &markers {
             for (field, expression) in [

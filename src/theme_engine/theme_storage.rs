@@ -1,10 +1,13 @@
 use super::*;
 
+/// Themes sit beside the settings that point at them. `app_data_directory`
+/// prefers a `data` folder next to the executable, so a portable copy keeps
+/// its own themes instead of loading whichever ones this machine has in
+/// %APPDATA% -- reading the environment directly here left a portable install
+/// writing settings beside the executable while still rendering the roaming
+/// themes.
 pub fn themes_directory() -> PathBuf {
-    let appdata = std::env::var("APPDATA").unwrap_or_else(|_| ".".to_string());
-    PathBuf::from(appdata)
-        .join("ClaudeCodeUsageMonitor")
-        .join("themes")
+    crate::app_settings::app_data_directory().join("themes")
 }
 
 #[derive(Clone, Debug)]
