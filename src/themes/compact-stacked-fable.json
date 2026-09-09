@@ -128,7 +128,7 @@
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#E6FBFFFF"
+              "color": "#7FE9FFFF"
             }
           }
         },
@@ -208,7 +208,7 @@
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#001233FF"
+              "color": "#002E8AFF"
             }
           }
         },
@@ -288,7 +288,7 @@
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#E6FBFFFF"
+              "color": "#7FE9FFFF"
             }
           }
         },
@@ -368,7 +368,7 @@
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#001233FF"
+              "color": "#002E8AFF"
             }
           }
         },
@@ -465,7 +465,7 @@
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#E6FBFFFF"
+              "color": "#3DD6FFFF"
             }
           }
         },
@@ -529,7 +529,7 @@
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#001233FF"
+              "color": "#002E8AFF"
             }
           }
         },
@@ -593,7 +593,7 @@
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#E6FBFFFF"
+              "color": "#3DD6FFFF"
             }
           }
         },
@@ -657,7 +657,7 @@
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#001233FF"
+              "color": "#002E8AFF"
             }
           }
         },
@@ -729,7 +729,7 @@
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#FFE0E0FF"
+              "color": "#FF8A80FF"
             }
           }
         },
@@ -809,7 +809,7 @@
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#4A0000FF"
+              "color": "#7F0000FF"
             }
           }
         },
@@ -897,7 +897,7 @@
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#E6FBFFFF"
+              "color": "#7FE9FFFF"
             }
           }
         },
@@ -961,7 +961,7 @@
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#001233FF"
+              "color": "#002E8AFF"
             }
           }
         },
@@ -1025,7 +1025,7 @@
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#E6FBFFFF"
+              "color": "#7FE9FFFF"
             }
           }
         },
@@ -1089,7 +1089,7 @@
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#001233FF"
+              "color": "#002E8AFF"
             }
           }
         },
@@ -1151,8 +1151,8 @@
         },
         {
           "id": "opencode-session-segments-dark-pace",
-          "name": "dark OpenCode 5-hour segments pace marker",
-          "render": "(system.dark) * min(1, opencode.session.reset.period)",
+          "name": "dark OpenCode 5-hour segments pace marker over track",
+          "render": "(system.dark) * min(1, opencode.session.reset.period) * (opencode.session.percentage < opencode.session.reset.elapsed)",
           "parent": "opencode-session-segments-dark",
           "x": "opencode.session.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
@@ -1161,7 +1161,23 @@
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#E6FBFFFF"
+              "color": "#7FE9FFFF"
+            }
+          }
+        },
+        {
+          "id": "opencode-session-segments-dark-pace-over",
+          "name": "dark OpenCode 5-hour segments pace marker over fill",
+          "render": "(system.dark) * min(1, opencode.session.reset.period) * (opencode.session.percentage >= opencode.session.reset.elapsed)",
+          "parent": "opencode-session-segments-dark",
+          "x": "opencode.session.reset.elapsed / 100 * (parent.width - 2)",
+          "y": "0",
+          "width": "2",
+          "height": "parent.height",
+          "background": {
+            "type": "colour",
+            "colour": {
+              "color": "#0046C8FF"
             }
           }
         },
@@ -1225,7 +1241,7 @@
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#001233FF"
+              "color": "#002E8AFF"
             }
           }
         },
@@ -1279,8 +1295,8 @@
         },
         {
           "id": "opencode-weekly-segments-dark-pace",
-          "name": "dark OpenCode long-window segments pace marker",
-          "render": "(system.dark) * min(1, opencode.weekly.reset.period)",
+          "name": "dark OpenCode long-window segments pace marker over track",
+          "render": "(system.dark) * min(1, opencode.weekly.reset.period) * (opencode.weekly.percentage < opencode.weekly.reset.elapsed)",
           "parent": "opencode-weekly-segments-dark",
           "x": "opencode.weekly.reset.elapsed / 100 * (parent.width - 2)",
           "y": "0",
@@ -1289,7 +1305,23 @@
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#E6FBFFFF"
+              "color": "#7FE9FFFF"
+            }
+          }
+        },
+        {
+          "id": "opencode-weekly-segments-dark-pace-over",
+          "name": "dark OpenCode long-window segments pace marker over fill",
+          "render": "(system.dark) * min(1, opencode.weekly.reset.period) * (opencode.weekly.percentage >= opencode.weekly.reset.elapsed)",
+          "parent": "opencode-weekly-segments-dark",
+          "x": "opencode.weekly.reset.elapsed / 100 * (parent.width - 2)",
+          "y": "0",
+          "width": "2",
+          "height": "parent.height",
+          "background": {
+            "type": "colour",
+            "colour": {
+              "color": "#0046C8FF"
             }
           }
         },
@@ -1353,7 +1385,7 @@
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#001233FF"
+              "color": "#002E8AFF"
             }
           }
         },
@@ -2035,7 +2067,7 @@
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#E6FBFFFF"
+              "color": "#3DD6FFFF"
             }
           }
         },
@@ -2122,7 +2154,7 @@
           "background": {
             "type": "colour",
             "colour": {
-              "color": "#001233FF"
+              "color": "#002E8AFF"
             }
           }
         },
