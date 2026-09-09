@@ -384,8 +384,8 @@ fn reset_periods_are_published_per_window_and_zero_when_unknown() {
         Some(604_800.0),
         "an unlabelled weekly window is seven days"
     );
-    // A calendar month varies in length and a scoped window never publishes
-    // one, so both report no period and no share.
+    // A calendar month varies in length, and this response carries no scoped
+    // ceiling to take a reset from, so neither reports a period or a share.
     for window in ["monthly", "scoped"] {
         assert_eq!(
             context.get(&format!("claude.{window}.reset.period")),
@@ -415,6 +415,71 @@ fn reset_periods_are_published_per_window_and_zero_when_unknown() {
         Some(18_000.0),
         "the active alias should carry the same period"
     );
+}
+
+#[test]
+fn a_scoped_ceiling_takes_its_period_from_the_window_it_resets_with() {
+    let at =
+        |seconds: u64| Some(std::time::SystemTime::now() + std::time::Duration::from_secs(seconds));
+    let context_for = |scoped_reset: Option<std::time::SystemTime>| {
+        let usage = AppUsageData::from_iter([(
+            ProviderId::Claude,
+            crate::models::UsageData {
+                session: crate::models::UsageSection {
+                    percentage: 10.0,
+                    resets_at: at(3_600),
+                },
+                weekly: crate::models::UsageSection {
+                    percentage: 10.0,
+                    resets_at: at(5 * 86_400),
+                },
+                weekly_label: None,
+                monthly: None,
+                scoped: Some(crate::models::ScopedUsageSection {
+                    model: "Fable".into(),
+                    percentage: 0.0,
+                    resets_at: scoped_reset,
+                }),
+                credits: None,
+                stale: false,
+            },
+        )]);
+        DataContext::from_usage_with_runtime(
+            Some(&usage),
+            &Canvas::default(),
+            ThemeRuntime::default(),
+        )
+    };
+
+    // Claude scopes the seven-day window, and the two reset together.
+    let weekly = context_for(at(5 * 86_400));
+    assert_eq!(
+        weekly.get("claude.scoped.reset.period"),
+        Some(604_800.0),
+        "a scoped ceiling on the weekly window spans the week"
+    );
+    // Each reset is stamped from its own `now`, so the two land microseconds
+    // apart rather than exactly together.
+    let scoped_elapsed = weekly.get("claude.scoped.reset.elapsed").unwrap();
+    let weekly_elapsed = weekly.get("claude.weekly.reset.elapsed").unwrap();
+    assert!(
+        (scoped_elapsed - weekly_elapsed).abs() < 0.01,
+        "sharing a reset should mean sharing a position on the bar,          got {scoped_elapsed} against {weekly_elapsed}"
+    );
+
+    // Nothing stops a plan from scoping the five-hour window instead.
+    let session = context_for(at(3_600));
+    assert_eq!(
+        session.get("claude.scoped.reset.period"),
+        Some(18_000.0),
+        "a scoped ceiling on the five-hour window spans five hours"
+    );
+
+    // A reset matching no other window leaves the span unknown rather than
+    // guessed, so the marker stays away.
+    let orphan = context_for(at(2 * 86_400));
+    assert_eq!(orphan.get("claude.scoped.reset.period"), Some(0.0));
+    assert_eq!(orphan.get("claude.scoped.reset.elapsed"), Some(0.0));
 }
 
 #[test]
@@ -509,12 +574,12 @@ fn the_authored_themes_carry_a_working_pace_marker_on_every_window_bar() {
         let markers: Vec<_> = theme.surfaces[0]
             .children
             .iter()
-            .filter(|child| child.id.contains("-pace"))
+            .filter(|child| child.id.ends_with("-pace"))
             .collect();
         assert_eq!(
             markers.len(),
-            40,
-            "{name} should give every window bar a halo and a core, and no credits bar either"
+            20,
+            "{name} should mark every window bar and no credits bar"
         );
         for marker in &markers {
             for (field, expression) in [

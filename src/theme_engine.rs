@@ -1292,6 +1292,13 @@ fn parse_window_period_seconds(label: &str) -> Option<f64> {
     Some(count * unit_seconds)
 }
 
+/// Whether two windows reset at the same moment, allowing for a provider that
+/// rounds one of them differently. The windows this has to tell apart are
+/// hours or days apart, so a minute of slack cannot confuse them.
+fn shares_reset_instant(left: f64, right: f64) -> bool {
+    left > 0.0 && right > 0.0 && (left - right).abs() <= 60.0
+}
+
 /// Share of a window already spent, 0 to 100, from the time left on it.
 ///
 /// Percent rather than a 0-to-1 fraction so a theme can bind it straight to a
@@ -1557,6 +1564,18 @@ impl DataContext {
         } else {
             Some(FIVE_HOUR_PERIOD_SECONDS)
         };
+        // A scoped ceiling caps one model family inside an ordinary window and
+        // resets with it, so the window it shares a reset instant with settles
+        // its length. Claude scopes the seven-day window today, but a plan is
+        // free to scope the five-hour one instead, which is why this reads the
+        // reset rather than assuming a group.
+        let scoped_period = [
+            (weekly_unix, weekly_period),
+            (five_hour_unix, Some(FIVE_HOUR_PERIOD_SECONDS)),
+        ]
+        .into_iter()
+        .find(|(unix, _)| shares_reset_instant(scoped_unix, *unix))
+        .and_then(|(_, period)| period);
         for (window, unix, seconds, period) in [
             ("session", session_unix, session_seconds, session_period),
             (
@@ -1566,10 +1585,9 @@ impl DataContext {
                 Some(FIVE_HOUR_PERIOD_SECONDS),
             ),
             ("weekly", weekly_unix, weekly_seconds, weekly_period),
-            // A calendar month varies in length and a scoped window's span is
-            // not published at all, so neither reports a period.
+            // A calendar month varies in length, so it reports no period.
             ("monthly", monthly_unix, monthly_seconds, None),
-            ("scoped", scoped_unix, scoped_seconds, None),
+            ("scoped", scoped_unix, scoped_seconds, scoped_period),
         ] {
             self.insert(&format!("{name}.{window}.reset.unix"), unix);
             self.insert(&format!("{name}.{window}.reset.seconds"), seconds);
