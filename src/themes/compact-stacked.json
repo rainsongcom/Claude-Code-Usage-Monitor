@@ -147,7 +147,7 @@
             "font_family": "Consolas",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2) + providers.codex.enabled * (2) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
-            "rendering": "clear_type",
+            "rendering": "aliased",
             "contrast": "1",
             "align": "right",
             "color": {
@@ -211,7 +211,7 @@
             "font_family": "Consolas",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2) + providers.codex.enabled * (2) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
-            "rendering": "clear_type",
+            "rendering": "aliased",
             "contrast": "1",
             "align": "right",
             "color": {
@@ -275,7 +275,7 @@
             "font_family": "Consolas",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2) + providers.codex.enabled * (2) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
-            "rendering": "clear_type",
+            "rendering": "aliased",
             "contrast": "1",
             "align": "right",
             "color": {
@@ -339,7 +339,7 @@
             "font_family": "Consolas",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2) + providers.codex.enabled * (2) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
-            "rendering": "clear_type",
+            "rendering": "aliased",
             "contrast": "1",
             "align": "right",
             "color": {
@@ -420,7 +420,7 @@
             "font_family": "Consolas",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2) + providers.codex.enabled * (2) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
-            "rendering": "clear_type",
+            "rendering": "aliased",
             "contrast": "1",
             "align": "right",
             "color": {
@@ -484,7 +484,7 @@
             "font_family": "Consolas",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2) + providers.codex.enabled * (2) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
-            "rendering": "clear_type",
+            "rendering": "aliased",
             "contrast": "1",
             "align": "right",
             "color": {
@@ -548,7 +548,7 @@
             "font_family": "Consolas",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2) + providers.codex.enabled * (2) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
-            "rendering": "clear_type",
+            "rendering": "aliased",
             "contrast": "1",
             "align": "right",
             "color": {
@@ -612,7 +612,7 @@
             "font_family": "Consolas",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2) + providers.codex.enabled * (2) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
-            "rendering": "clear_type",
+            "rendering": "aliased",
             "contrast": "1",
             "align": "right",
             "color": {
@@ -684,7 +684,7 @@
             "font_family": "Consolas",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2) + providers.codex.enabled * (2) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
-            "rendering": "clear_type",
+            "rendering": "aliased",
             "contrast": "1",
             "align": "right",
             "color": {
@@ -748,7 +748,7 @@
             "font_family": "Consolas",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2) + providers.codex.enabled * (2) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
-            "rendering": "clear_type",
+            "rendering": "aliased",
             "contrast": "1",
             "align": "right",
             "color": {
@@ -812,7 +812,7 @@
             "font_family": "Consolas",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2) + providers.codex.enabled * (2) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
-            "rendering": "clear_type",
+            "rendering": "aliased",
             "contrast": "1",
             "align": "right",
             "color": {
@@ -876,7 +876,7 @@
             "font_family": "Consolas",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2) + providers.codex.enabled * (2) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
-            "rendering": "clear_type",
+            "rendering": "aliased",
             "contrast": "1",
             "align": "right",
             "color": {
@@ -948,7 +948,7 @@
             "font_family": "Consolas",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2) + providers.codex.enabled * (2) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
-            "rendering": "clear_type",
+            "rendering": "aliased",
             "contrast": "1",
             "align": "right",
             "color": {
@@ -1012,7 +1012,7 @@
             "font_family": "Consolas",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2) + providers.codex.enabled * (2) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
-            "rendering": "clear_type",
+            "rendering": "aliased",
             "contrast": "1",
             "align": "right",
             "color": {
@@ -1076,7 +1076,7 @@
             "font_family": "Consolas",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2) + providers.codex.enabled * (2) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
-            "rendering": "clear_type",
+            "rendering": "aliased",
             "contrast": "1",
             "align": "right",
             "color": {
@@ -1140,7 +1140,7 @@
             "font_family": "Consolas",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2) + providers.codex.enabled * (2) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
-            "rendering": "clear_type",
+            "rendering": "aliased",
             "contrast": "1",
             "align": "right",
             "color": {
@@ -1212,7 +1212,7 @@
             "font_family": "Consolas",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2) + providers.codex.enabled * (2) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
-            "rendering": "clear_type",
+            "rendering": "aliased",
             "contrast": "1",
             "align": "right",
             "color": {
@@ -1276,7 +1276,7 @@
             "font_family": "Consolas",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2) + providers.codex.enabled * (2) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
-            "rendering": "clear_type",
+            "rendering": "aliased",
             "contrast": "1",
             "align": "right",
             "color": {
@@ -1340,7 +1340,7 @@
             "font_family": "Consolas",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2) + providers.codex.enabled * (2) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
-            "rendering": "clear_type",
+            "rendering": "aliased",
             "contrast": "1",
             "align": "right",
             "color": {
@@ -1404,7 +1404,7 @@
             "font_family": "Consolas",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2) + providers.codex.enabled * (2) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
-            "rendering": "clear_type",
+            "rendering": "aliased",
             "contrast": "1",
             "align": "right",
             "color": {
@@ -1454,7 +1454,7 @@
             "font_family": "Consolas",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2) + providers.codex.enabled * (2) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
-            "rendering": "clear_type",
+            "rendering": "aliased",
             "contrast": "1",
             "align": "right",
             "color": {
@@ -1505,7 +1505,7 @@
             "font_family": "Consolas",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2) + providers.codex.enabled * (2) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
-            "rendering": "clear_type",
+            "rendering": "aliased",
             "contrast": "1",
             "align": "right",
             "color": {
@@ -1556,7 +1556,7 @@
             "font_family": "Consolas",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2) + providers.codex.enabled * (2) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
-            "rendering": "clear_type",
+            "rendering": "aliased",
             "contrast": "1",
             "align": "right",
             "color": {
@@ -1607,7 +1607,7 @@
             "font_family": "Consolas",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2) + providers.codex.enabled * (2) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
-            "rendering": "clear_type",
+            "rendering": "aliased",
             "contrast": "1",
             "align": "right",
             "color": {
