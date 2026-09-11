@@ -46,7 +46,6 @@ $ExeName = "$PackageName.exe"
 # between machines by git. Their names already follow the <theme id>.json
 # convention the app writes, so they load as-is.
 $ShippedThemes = @(
-    'compact-stacked.json',
     'compact-stacked-fable.json'
 )
 

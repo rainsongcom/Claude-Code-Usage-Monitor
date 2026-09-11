@@ -19,7 +19,7 @@
         "offset_x": 0,
         "offset_y": 0
       },
-      "width": "80 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 10.95 + (providers.opencode.enabled + providers.cursor.enabled) * 28",
+      "width": "86 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 10.95 + (providers.opencode.enabled + providers.cursor.enabled) * 28",
       "height": "46",
       "mouse_events": {
         "right_click": "show_context_menu(\"classic-v1\")"
@@ -97,7 +97,7 @@
           "render": "system.dark",
           "parent": "cursor-provider",
           "y": "0.75 + (46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.2",
-          "width": "52",
+          "width": "58",
           "height": "(46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.6",
           "content": {
             "type": "progress",
@@ -112,7 +112,7 @@
             "corner_radius": "2",
             "segments": 10,
             "segments_expression": "10",
-            "segment_gap": "4 / 3"
+            "segment_gap": "2"
           },
           "x": "20 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9"
         },
@@ -153,7 +153,7 @@
           "name": "dark Cursor Auto value",
           "render": "system.dark",
           "parent": "cursor-provider",
-          "x": "76 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
+          "x": "82 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
           "y": "0.75",
           "width": "(min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 9.05 + (providers.opencode.enabled + providers.cursor.enabled) * 28",
           "height": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5",
@@ -177,7 +177,7 @@
           "render": "1 - system.dark",
           "parent": "cursor-provider",
           "y": "0.75 + (46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.2",
-          "width": "52",
+          "width": "58",
           "height": "(46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.6",
           "content": {
             "type": "progress",
@@ -192,7 +192,7 @@
             "corner_radius": "2",
             "segments": 10,
             "segments_expression": "10",
-            "segment_gap": "4 / 3"
+            "segment_gap": "2"
           },
           "x": "20 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9"
         },
@@ -233,7 +233,7 @@
           "name": "light Cursor Auto value",
           "render": "1 - system.dark",
           "parent": "cursor-provider",
-          "x": "76 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
+          "x": "82 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
           "y": "0.75",
           "width": "(min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 9.05 + (providers.opencode.enabled + providers.cursor.enabled) * 28",
           "height": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5",
@@ -257,7 +257,7 @@
           "render": "system.dark",
           "parent": "cursor-provider",
           "y": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) * 1 + 0.75 + (46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.2",
-          "width": "52",
+          "width": "58",
           "height": "(46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.6",
           "content": {
             "type": "progress",
@@ -272,7 +272,7 @@
             "corner_radius": "2",
             "segments": 10,
             "segments_expression": "10",
-            "segment_gap": "4 / 3"
+            "segment_gap": "2"
           },
           "x": "20 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9"
         },
@@ -313,7 +313,7 @@
           "name": "dark Cursor API value",
           "render": "system.dark",
           "parent": "cursor-provider",
-          "x": "76 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
+          "x": "82 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
           "y": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) * 1 + 0.75",
           "width": "(min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 9.05 + (providers.opencode.enabled + providers.cursor.enabled) * 28",
           "height": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5",
@@ -337,7 +337,7 @@
           "render": "1 - system.dark",
           "parent": "cursor-provider",
           "y": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) * 1 + 0.75 + (46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.2",
-          "width": "52",
+          "width": "58",
           "height": "(46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.6",
           "content": {
             "type": "progress",
@@ -352,7 +352,7 @@
             "corner_radius": "2",
             "segments": 10,
             "segments_expression": "10",
-            "segment_gap": "4 / 3"
+            "segment_gap": "2"
           },
           "x": "20 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9"
         },
@@ -393,7 +393,7 @@
           "name": "light Cursor API value",
           "render": "1 - system.dark",
           "parent": "cursor-provider",
-          "x": "76 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
+          "x": "82 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
           "y": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) * 1 + 0.75",
           "width": "(min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 9.05 + (providers.opencode.enabled + providers.cursor.enabled) * 28",
           "height": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5",
@@ -434,7 +434,7 @@
           "render": "system.dark",
           "parent": "claude-provider",
           "y": "0.75 + (46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.2",
-          "width": "52",
+          "width": "58",
           "height": "(46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.6",
           "content": {
             "type": "progress",
@@ -449,7 +449,7 @@
             "corner_radius": "2",
             "segments": 10,
             "segments_expression": "10",
-            "segment_gap": "4 / 3"
+            "segment_gap": "2"
           },
           "x": "20 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9"
         },
@@ -474,7 +474,7 @@
           "name": "dark Claude Code 5-hour value",
           "render": "system.dark",
           "parent": "claude-provider",
-          "x": "76 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
+          "x": "82 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
           "y": "0.75",
           "width": "(min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 9.05 + (providers.opencode.enabled + providers.cursor.enabled) * 28",
           "height": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5",
@@ -498,7 +498,7 @@
           "render": "1 - system.dark",
           "parent": "claude-provider",
           "y": "0.75 + (46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.2",
-          "width": "52",
+          "width": "58",
           "height": "(46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.6",
           "content": {
             "type": "progress",
@@ -513,7 +513,7 @@
             "corner_radius": "2",
             "segments": 10,
             "segments_expression": "10",
-            "segment_gap": "4 / 3"
+            "segment_gap": "2"
           },
           "x": "20 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9"
         },
@@ -538,7 +538,7 @@
           "name": "light Claude Code 5-hour value",
           "render": "1 - system.dark",
           "parent": "claude-provider",
-          "x": "76 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
+          "x": "82 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
           "y": "0.75",
           "width": "(min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 9.05 + (providers.opencode.enabled + providers.cursor.enabled) * 28",
           "height": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5",
@@ -562,7 +562,7 @@
           "render": "system.dark",
           "parent": "claude-provider",
           "y": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) * 1 + 0.75 + (46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.2",
-          "width": "52",
+          "width": "58",
           "height": "(46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.6",
           "content": {
             "type": "progress",
@@ -577,7 +577,7 @@
             "corner_radius": "2",
             "segments": 10,
             "segments_expression": "10",
-            "segment_gap": "4 / 3"
+            "segment_gap": "2"
           },
           "x": "20 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9"
         },
@@ -602,7 +602,7 @@
           "name": "dark Claude Code 7-day value",
           "render": "(system.dark) && !claude.credits.available",
           "parent": "claude-provider",
-          "x": "76 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
+          "x": "82 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
           "y": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) * 1 + 0.75",
           "width": "(min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 9.05 + (providers.opencode.enabled + providers.cursor.enabled) * 28",
           "height": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5",
@@ -626,7 +626,7 @@
           "render": "1 - system.dark",
           "parent": "claude-provider",
           "y": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) * 1 + 0.75 + (46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.2",
-          "width": "52",
+          "width": "58",
           "height": "(46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.6",
           "content": {
             "type": "progress",
@@ -641,7 +641,7 @@
             "corner_radius": "2",
             "segments": 10,
             "segments_expression": "10",
-            "segment_gap": "4 / 3"
+            "segment_gap": "2"
           },
           "x": "20 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9"
         },
@@ -666,7 +666,7 @@
           "name": "light Claude Code 7-day value",
           "render": "(1 - system.dark) && !claude.credits.available",
           "parent": "claude-provider",
-          "x": "76 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
+          "x": "82 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
           "y": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) * 1 + 0.75",
           "width": "(min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 9.05 + (providers.opencode.enabled + providers.cursor.enabled) * 28",
           "height": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5",
@@ -698,7 +698,7 @@
           "render": "system.dark",
           "parent": "codex-provider",
           "y": "0.75 + (46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.2",
-          "width": "52",
+          "width": "58",
           "height": "(46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.6",
           "content": {
             "type": "progress",
@@ -713,7 +713,7 @@
             "corner_radius": "2",
             "segments": 10,
             "segments_expression": "10",
-            "segment_gap": "4 / 3"
+            "segment_gap": "2"
           },
           "x": "20 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9"
         },
@@ -754,7 +754,7 @@
           "name": "dark Codex 7-day value",
           "render": "(system.dark) && !codex.credits.available",
           "parent": "codex-provider",
-          "x": "76 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
+          "x": "82 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
           "y": "0.75",
           "width": "(min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 9.05 + (providers.opencode.enabled + providers.cursor.enabled) * 28",
           "height": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5",
@@ -778,7 +778,7 @@
           "render": "1 - system.dark",
           "parent": "codex-provider",
           "y": "0.75 + (46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.2",
-          "width": "52",
+          "width": "58",
           "height": "(46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.6",
           "content": {
             "type": "progress",
@@ -793,7 +793,7 @@
             "corner_radius": "2",
             "segments": 10,
             "segments_expression": "10",
-            "segment_gap": "4 / 3"
+            "segment_gap": "2"
           },
           "x": "20 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9"
         },
@@ -834,7 +834,7 @@
           "name": "light Codex 7-day value",
           "render": "(1 - system.dark) && !codex.credits.available",
           "parent": "codex-provider",
-          "x": "76 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
+          "x": "82 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
           "y": "0.75",
           "width": "(min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 9.05 + (providers.opencode.enabled + providers.cursor.enabled) * 28",
           "height": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5",
@@ -866,7 +866,7 @@
           "render": "system.dark",
           "parent": "antigravity-provider",
           "y": "0.75 + (46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.2",
-          "width": "52",
+          "width": "58",
           "height": "(46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.6",
           "content": {
             "type": "progress",
@@ -881,7 +881,7 @@
             "corner_radius": "2",
             "segments": 10,
             "segments_expression": "10",
-            "segment_gap": "4 / 3"
+            "segment_gap": "2"
           },
           "x": "20 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9"
         },
@@ -906,7 +906,7 @@
           "name": "dark Antigravity 5-hour value",
           "render": "system.dark",
           "parent": "antigravity-provider",
-          "x": "76 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
+          "x": "82 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
           "y": "0.75",
           "width": "(min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 9.05 + (providers.opencode.enabled + providers.cursor.enabled) * 28",
           "height": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5",
@@ -930,7 +930,7 @@
           "render": "1 - system.dark",
           "parent": "antigravity-provider",
           "y": "0.75 + (46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.2",
-          "width": "52",
+          "width": "58",
           "height": "(46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.6",
           "content": {
             "type": "progress",
@@ -945,7 +945,7 @@
             "corner_radius": "2",
             "segments": 10,
             "segments_expression": "10",
-            "segment_gap": "4 / 3"
+            "segment_gap": "2"
           },
           "x": "20 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9"
         },
@@ -970,7 +970,7 @@
           "name": "light Antigravity 5-hour value",
           "render": "1 - system.dark",
           "parent": "antigravity-provider",
-          "x": "76 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
+          "x": "82 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
           "y": "0.75",
           "width": "(min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 9.05 + (providers.opencode.enabled + providers.cursor.enabled) * 28",
           "height": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5",
@@ -994,7 +994,7 @@
           "render": "system.dark",
           "parent": "antigravity-provider",
           "y": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) * 1 + 0.75 + (46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.2",
-          "width": "52",
+          "width": "58",
           "height": "(46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.6",
           "content": {
             "type": "progress",
@@ -1009,7 +1009,7 @@
             "corner_radius": "2",
             "segments": 10,
             "segments_expression": "10",
-            "segment_gap": "4 / 3"
+            "segment_gap": "2"
           },
           "x": "20 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9"
         },
@@ -1034,7 +1034,7 @@
           "name": "dark Antigravity 7-day value",
           "render": "system.dark",
           "parent": "antigravity-provider",
-          "x": "76 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
+          "x": "82 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
           "y": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) * 1 + 0.75",
           "width": "(min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 9.05 + (providers.opencode.enabled + providers.cursor.enabled) * 28",
           "height": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5",
@@ -1058,7 +1058,7 @@
           "render": "1 - system.dark",
           "parent": "antigravity-provider",
           "y": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) * 1 + 0.75 + (46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.2",
-          "width": "52",
+          "width": "58",
           "height": "(46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.6",
           "content": {
             "type": "progress",
@@ -1073,7 +1073,7 @@
             "corner_radius": "2",
             "segments": 10,
             "segments_expression": "10",
-            "segment_gap": "4 / 3"
+            "segment_gap": "2"
           },
           "x": "20 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9"
         },
@@ -1098,7 +1098,7 @@
           "name": "light Antigravity 7-day value",
           "render": "1 - system.dark",
           "parent": "antigravity-provider",
-          "x": "76 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
+          "x": "82 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
           "y": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) * 1 + 0.75",
           "width": "(min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 9.05 + (providers.opencode.enabled + providers.cursor.enabled) * 28",
           "height": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5",
@@ -1130,7 +1130,7 @@
           "render": "system.dark",
           "parent": "opencode-provider",
           "y": "0.75 + (46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.2",
-          "width": "52",
+          "width": "58",
           "height": "(46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.6",
           "content": {
             "type": "progress",
@@ -1145,7 +1145,7 @@
             "corner_radius": "2",
             "segments": 10,
             "segments_expression": "10",
-            "segment_gap": "4 / 3"
+            "segment_gap": "2"
           },
           "x": "20 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9"
         },
@@ -1186,7 +1186,7 @@
           "name": "dark OpenCode 5-hour value",
           "render": "system.dark",
           "parent": "opencode-provider",
-          "x": "76 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
+          "x": "82 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
           "y": "0.75",
           "width": "(min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 9.05 + (providers.opencode.enabled + providers.cursor.enabled) * 28",
           "height": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5",
@@ -1210,7 +1210,7 @@
           "render": "1 - system.dark",
           "parent": "opencode-provider",
           "y": "0.75 + (46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.2",
-          "width": "52",
+          "width": "58",
           "height": "(46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.6",
           "content": {
             "type": "progress",
@@ -1225,7 +1225,7 @@
             "corner_radius": "2",
             "segments": 10,
             "segments_expression": "10",
-            "segment_gap": "4 / 3"
+            "segment_gap": "2"
           },
           "x": "20 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9"
         },
@@ -1250,7 +1250,7 @@
           "name": "light OpenCode 5-hour value",
           "render": "1 - system.dark",
           "parent": "opencode-provider",
-          "x": "76 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
+          "x": "82 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
           "y": "0.75",
           "width": "(min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 9.05 + (providers.opencode.enabled + providers.cursor.enabled) * 28",
           "height": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5",
@@ -1274,7 +1274,7 @@
           "render": "system.dark",
           "parent": "opencode-provider",
           "y": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) * 1 + 0.75 + (46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.2",
-          "width": "52",
+          "width": "58",
           "height": "(46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.6",
           "content": {
             "type": "progress",
@@ -1289,7 +1289,7 @@
             "corner_radius": "2",
             "segments": 10,
             "segments_expression": "10",
-            "segment_gap": "4 / 3"
+            "segment_gap": "2"
           },
           "x": "20 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9"
         },
@@ -1330,7 +1330,7 @@
           "name": "dark OpenCode long-window value",
           "render": "system.dark",
           "parent": "opencode-provider",
-          "x": "76 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
+          "x": "82 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
           "y": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) * 1 + 0.75",
           "width": "(min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 9.05 + (providers.opencode.enabled + providers.cursor.enabled) * 28",
           "height": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5",
@@ -1354,7 +1354,7 @@
           "render": "1 - system.dark",
           "parent": "opencode-provider",
           "y": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) * 1 + 0.75 + (46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.2",
-          "width": "52",
+          "width": "58",
           "height": "(46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.6",
           "content": {
             "type": "progress",
@@ -1369,7 +1369,7 @@
             "corner_radius": "2",
             "segments": 10,
             "segments_expression": "10",
-            "segment_gap": "4 / 3"
+            "segment_gap": "2"
           },
           "x": "20 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9"
         },
@@ -1394,7 +1394,7 @@
           "name": "light OpenCode long-window value",
           "render": "1 - system.dark",
           "parent": "opencode-provider",
-          "x": "76 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
+          "x": "82 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
           "y": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) * 1 + 0.75",
           "width": "(min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 9.05 + (providers.opencode.enabled + providers.cursor.enabled) * 28",
           "height": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5",
@@ -1418,7 +1418,7 @@
           "render": "(system.dark) && claude.credits.available",
           "parent": "claude-provider",
           "y": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) * 1 + 0.75 + (46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.2",
-          "width": "52",
+          "width": "58",
           "height": "(46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.6",
           "content": {
             "type": "progress",
@@ -1435,7 +1435,7 @@
             "corner_radius": "2",
             "segments": 10,
             "segments_expression": "10",
-            "segment_gap": "4 / 3"
+            "segment_gap": "2"
           },
           "x": "20 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9"
         },
@@ -1444,7 +1444,7 @@
           "name": "dark claude credit balance",
           "render": "(system.dark) && claude.credits.available",
           "parent": "claude-provider",
-          "x": "76 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
+          "x": "82 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
           "y": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) * 1 + 0.75",
           "width": "(min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 9.05 + (providers.opencode.enabled + providers.cursor.enabled) * 28",
           "height": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5",
@@ -1469,7 +1469,7 @@
           "render": "(1 - system.dark) && claude.credits.available",
           "parent": "claude-provider",
           "y": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) * 1 + 0.75 + (46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.2",
-          "width": "52",
+          "width": "58",
           "height": "(46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.6",
           "content": {
             "type": "progress",
@@ -1486,7 +1486,7 @@
             "corner_radius": "2",
             "segments": 10,
             "segments_expression": "10",
-            "segment_gap": "4 / 3"
+            "segment_gap": "2"
           },
           "x": "20 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9"
         },
@@ -1495,7 +1495,7 @@
           "name": "light claude credit balance",
           "render": "(1 - system.dark) && claude.credits.available",
           "parent": "claude-provider",
-          "x": "76 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
+          "x": "82 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
           "y": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) * 1 + 0.75",
           "width": "(min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 9.05 + (providers.opencode.enabled + providers.cursor.enabled) * 28",
           "height": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5",
@@ -1520,7 +1520,7 @@
           "render": "(system.dark) && codex.credits.available",
           "parent": "codex-provider",
           "y": "0.75 + (46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.2",
-          "width": "52",
+          "width": "58",
           "height": "(46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.6",
           "content": {
             "type": "progress",
@@ -1537,7 +1537,7 @@
             "corner_radius": "2",
             "segments": 10,
             "segments_expression": "10",
-            "segment_gap": "4 / 3"
+            "segment_gap": "2"
           },
           "x": "20 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9"
         },
@@ -1546,7 +1546,7 @@
           "name": "dark codex credit balance",
           "render": "(system.dark) && codex.credits.available",
           "parent": "codex-provider",
-          "x": "76 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
+          "x": "82 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
           "y": "0.75",
           "width": "(min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 9.05 + (providers.opencode.enabled + providers.cursor.enabled) * 28",
           "height": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5",
@@ -1571,7 +1571,7 @@
           "render": "(1 - system.dark) && codex.credits.available",
           "parent": "codex-provider",
           "y": "0.75 + (46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.2",
-          "width": "52",
+          "width": "58",
           "height": "(46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.6",
           "content": {
             "type": "progress",
@@ -1588,7 +1588,7 @@
             "corner_radius": "2",
             "segments": 10,
             "segments_expression": "10",
-            "segment_gap": "4 / 3"
+            "segment_gap": "2"
           },
           "x": "20 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9"
         },
@@ -1597,7 +1597,7 @@
           "name": "light codex credit balance",
           "render": "(1 - system.dark) && codex.credits.available",
           "parent": "codex-provider",
-          "x": "76 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
+          "x": "82 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
           "y": "0.75",
           "width": "(min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 9.05 + (providers.opencode.enabled + providers.cursor.enabled) * 28",
           "height": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5",
@@ -2036,7 +2036,7 @@
           "render": "(system.dark) * claude.scoped.available",
           "parent": "claude-provider",
           "y": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) * 2 + 0.75 + (46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.2",
-          "width": "52",
+          "width": "58",
           "height": "(46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.6",
           "content": {
             "type": "progress",
@@ -2051,7 +2051,7 @@
             "corner_radius": "2",
             "segments": 10,
             "segments_expression": "10",
-            "segment_gap": "4 / 3"
+            "segment_gap": "2"
           },
           "x": "20 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9"
         },
@@ -2076,7 +2076,7 @@
           "name": "dark Claude scoped-model value",
           "render": "(system.dark) * claude.scoped.available",
           "parent": "claude-provider",
-          "x": "76 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
+          "x": "82 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
           "y": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) * 2 + 0.75",
           "width": "(min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 9.05 + (providers.opencode.enabled + providers.cursor.enabled) * 28",
           "height": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5",
@@ -2123,7 +2123,7 @@
           "render": "(1 - system.dark) * claude.scoped.available",
           "parent": "claude-provider",
           "y": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) * 2 + 0.75 + (46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.2",
-          "width": "52",
+          "width": "58",
           "height": "(46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5) * 0.6",
           "content": {
             "type": "progress",
@@ -2138,7 +2138,7 @@
             "corner_radius": "2",
             "segments": 10,
             "segments_expression": "10",
-            "segment_gap": "4 / 3"
+            "segment_gap": "2"
           },
           "x": "20 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9"
         },
@@ -2163,7 +2163,7 @@
           "name": "light Claude scoped-model value",
           "render": "(1 - system.dark) * claude.scoped.available",
           "parent": "claude-provider",
-          "x": "76 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
+          "x": "82 + (min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 1.9",
           "y": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) * 2 + 0.75",
           "width": "(min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))) * 9.05 + (providers.opencode.enabled + providers.cursor.enabled) * 28",
           "height": "46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 1.5",

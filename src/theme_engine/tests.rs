@@ -554,10 +554,10 @@ fn the_authored_themes_carry_a_working_pace_marker_on_every_window_bar() {
         DataContext::from_usage_with_runtime(Some(&usage), &Canvas::default(), runtime);
     // Only geometry resolution publishes these, so stand in for a bar. Without
     // them a marker's own expressions cannot be evaluated in isolation.
-    context.insert("parent.width", 52.0);
+    context.insert("parent.width", 58.0);
     context.insert("parent.height", 6.0);
 
-    for name in ["compact-stacked", "compact-stacked-fable"] {
+    for name in ["compact-stacked-fable"] {
         let path = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
             .join("src")
             .join("themes")
@@ -1220,6 +1220,64 @@ fn segmented_progress_reserves_gaps_only_between_segments() {
     );
     assert!(mask[0]);
     assert!(mask[33]);
+}
+
+#[test]
+fn compact_stacked_bars_tile_evenly_at_shipped_dpi_scales() {
+    // The bars are sized so that segments and gaps both land on whole pixels
+    // at 100% and 150%, the two scales this theme is used at. Fractional
+    // geometry renders an uneven rhythm because segment edges are not
+    // antialiased, so a width or gap that no longer divides is a visible
+    // regression rather than a rounding detail.
+    let path = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+        .join("src")
+        .join("themes")
+        .join("compact-stacked-fable.json");
+    let theme: ThemeDocument =
+        serde_json::from_str(&std::fs::read_to_string(&path).unwrap()).unwrap();
+
+    let bars: Vec<_> = theme.surfaces[0]
+        .children
+        .iter()
+        .filter(|child| matches!(&child.content, SceneContent::Progress { .. }))
+        .collect();
+    assert!(!bars.is_empty(), "the theme should still have segmented bars");
+
+    for bar in bars {
+        let SceneContent::Progress {
+            segments,
+            segment_gap,
+            ..
+        } = &bar.content
+        else {
+            unreachable!()
+        };
+        let width: f64 = bar.width.0.trim().parse().expect("bar width is a constant");
+        let gap: f64 = segment_gap
+            .0
+            .trim()
+            .parse()
+            .expect("segment gap is a constant");
+        let count = *segments as f64;
+
+        for scale in [1.0, 1.5] {
+            let extent = (width * scale).round();
+            let gap_px = gap * scale;
+            let segment_px = (extent - gap_px * (count - 1.0)) / count;
+            assert_eq!(
+                gap_px.fract(),
+                0.0,
+                "{}: gap is {gap_px} px at {scale}x",
+                bar.id
+            );
+            assert_eq!(
+                segment_px.fract(),
+                0.0,
+                "{}: segment is {segment_px} px at {scale}x",
+                bar.id
+            );
+        }
+    }
 }
 
 #[test]
