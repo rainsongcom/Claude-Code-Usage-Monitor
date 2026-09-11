@@ -160,7 +160,7 @@
           "content": {
             "type": "text",
             "template": "{i18n.cursor_auto_window} {cursor.session:usage_line}",
-            "font_family": "Consolas",
+            "font_family": "Lucida Console",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
             "rendering": "aliased",
@@ -240,7 +240,7 @@
           "content": {
             "type": "text",
             "template": "{i18n.cursor_auto_window} {cursor.session:usage_line}",
-            "font_family": "Consolas",
+            "font_family": "Lucida Console",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
             "rendering": "aliased",
@@ -320,7 +320,7 @@
           "content": {
             "type": "text",
             "template": "{i18n.cursor_api_window} {cursor.weekly:usage_line}",
-            "font_family": "Consolas",
+            "font_family": "Lucida Console",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
             "rendering": "aliased",
@@ -400,7 +400,7 @@
           "content": {
             "type": "text",
             "template": "{i18n.cursor_api_window} {cursor.weekly:usage_line}",
-            "font_family": "Consolas",
+            "font_family": "Lucida Console",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
             "rendering": "aliased",
@@ -481,7 +481,7 @@
           "content": {
             "type": "text",
             "template": "{claude.session:usage_line}",
-            "font_family": "Consolas",
+            "font_family": "Lucida Console",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
             "rendering": "aliased",
@@ -545,7 +545,7 @@
           "content": {
             "type": "text",
             "template": "{claude.session:usage_line}",
-            "font_family": "Consolas",
+            "font_family": "Lucida Console",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
             "rendering": "aliased",
@@ -609,7 +609,7 @@
           "content": {
             "type": "text",
             "template": "{claude.weekly:usage_line}",
-            "font_family": "Consolas",
+            "font_family": "Lucida Console",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
             "rendering": "aliased",
@@ -673,7 +673,7 @@
           "content": {
             "type": "text",
             "template": "{claude.weekly:usage_line}",
-            "font_family": "Consolas",
+            "font_family": "Lucida Console",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
             "rendering": "aliased",
@@ -761,7 +761,7 @@
           "content": {
             "type": "text",
             "template": "{codex.weekly:usage_line}",
-            "font_family": "Consolas",
+            "font_family": "Lucida Console",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
             "rendering": "aliased",
@@ -841,7 +841,7 @@
           "content": {
             "type": "text",
             "template": "{codex.weekly:usage_line}",
-            "font_family": "Consolas",
+            "font_family": "Lucida Console",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
             "rendering": "aliased",
@@ -913,7 +913,7 @@
           "content": {
             "type": "text",
             "template": "{antigravity.session:usage_line}",
-            "font_family": "Consolas",
+            "font_family": "Lucida Console",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
             "rendering": "aliased",
@@ -977,7 +977,7 @@
           "content": {
             "type": "text",
             "template": "{antigravity.session:usage_line}",
-            "font_family": "Consolas",
+            "font_family": "Lucida Console",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
             "rendering": "aliased",
@@ -1041,7 +1041,7 @@
           "content": {
             "type": "text",
             "template": "{antigravity.weekly:usage_line}",
-            "font_family": "Consolas",
+            "font_family": "Lucida Console",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
             "rendering": "aliased",
@@ -1105,7 +1105,7 @@
           "content": {
             "type": "text",
             "template": "{antigravity.weekly:usage_line}",
-            "font_family": "Consolas",
+            "font_family": "Lucida Console",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
             "rendering": "aliased",
@@ -1193,7 +1193,7 @@
           "content": {
             "type": "text",
             "template": "{opencode.session:usage_line}",
-            "font_family": "Consolas",
+            "font_family": "Lucida Console",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
             "rendering": "aliased",
@@ -1257,7 +1257,7 @@
           "content": {
             "type": "text",
             "template": "{opencode.session:usage_line}",
-            "font_family": "Consolas",
+            "font_family": "Lucida Console",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
             "rendering": "aliased",
@@ -1337,7 +1337,7 @@
           "content": {
             "type": "text",
             "template": "{opencode.weekly.label} {opencode.weekly:usage_line}",
-            "font_family": "Consolas",
+            "font_family": "Lucida Console",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
             "rendering": "aliased",
@@ -1401,7 +1401,7 @@
           "content": {
             "type": "text",
             "template": "{opencode.weekly.label} {opencode.weekly:usage_line}",
-            "font_family": "Consolas",
+            "font_family": "Lucida Console",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
             "rendering": "aliased",
@@ -1451,7 +1451,7 @@
           "content": {
             "type": "text",
             "template": "${claude.credits.balance:0.00}",
-            "font_family": "Consolas",
+            "font_family": "Lucida Console",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
             "rendering": "aliased",
@@ -1502,7 +1502,7 @@
           "content": {
             "type": "text",
             "template": "${claude.credits.balance:0.00}",
-            "font_family": "Consolas",
+            "font_family": "Lucida Console",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
             "rendering": "aliased",
@@ -1553,7 +1553,7 @@
           "content": {
             "type": "text",
             "template": "${codex.credits.balance:0.00}",
-            "font_family": "Consolas",
+            "font_family": "Lucida Console",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
             "rendering": "aliased",
@@ -1604,7 +1604,7 @@
           "content": {
             "type": "text",
             "template": "${codex.credits.balance:0.00}",
-            "font_family": "Consolas",
+            "font_family": "Lucida Console",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
             "rendering": "aliased",
@@ -2083,7 +2083,7 @@
           "content": {
             "type": "text",
             "template": "{claude.scoped:usage_line}",
-            "font_family": "Consolas",
+            "font_family": "Lucida Console",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
             "rendering": "aliased",
@@ -2170,7 +2170,7 @@
           "content": {
             "type": "text",
             "template": "{claude.scoped:usage_line}",
-            "font_family": "Consolas",
+            "font_family": "Lucida Console",
             "font_size": "min(12, max(7.5, 46 / (max(1, providers.claude.enabled * (2 + claude.scoped.available) + providers.codex.enabled * (1) + providers.antigravity.enabled * (2) + providers.opencode.enabled * (2) + providers.cursor.enabled * (2))) - 2.5))",
             "weight": "medium",
             "rendering": "aliased",
